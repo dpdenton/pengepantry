@@ -1,0 +1,16 @@
+{
+  "name": "@penge-pantry/components",
+  "version": "1.0.0",
+  "private": false,
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --watch"
+  },
+  "dependencies": {
+    "@emotion/native": "^11.0.0",
+    "@emotion/react": "^11.8.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}

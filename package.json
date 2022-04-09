@@ -1,5 +1,5 @@
 {
-  "name": "penge-pantry",
+  "name": "@penge-pantry/mono",
   "private": true,
   "scripts": {
     "reset": "find . -type dir -name node_modules | xargs rm -rf && rm -rf yarn.lock"

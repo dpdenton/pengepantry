@@ -2,3 +2,12 @@
 .vscode
 node_modules/
 yarn-error.log
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+*.hprof

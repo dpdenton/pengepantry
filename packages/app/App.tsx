@@ -15,16 +15,18 @@ import {
   View,
 } from 'react-native';
 
-const App = () => {
+import App from '@penge-pantry/components'
 
-  return (
-    <SafeAreaView>
-      <View>
-        <Text>Hello Dave
-        </Text>
-      </View>
-    </SafeAreaView>
-  );
-};
+// const App = () => {
+//
+//   return (
+//     <SafeAreaView>
+//       <View>
+//         <Text>Hello David
+//         </Text>
+//       </View>
+//     </SafeAreaView>
+//   );
+// };
 
 export default App;
