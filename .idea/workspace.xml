@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e79b5b04-004a-4e61-a83c-938b74795d5a" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/packages/components/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/components/src/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/components/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="e79b5b04-004a-4e61-a83c-938b74795d5a" name="Changes" comment="react-native-web configured in 'web' package">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/app/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/app/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/packages/app/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/app/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/packages/app/android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/app/ios/app/AppDelegate.mm" beforeDir="false" afterPath="$PROJECT_DIR$/packages/app/ios/app/AppDelegate.mm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,27 +45,30 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v16.13.1/bin/node" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages" />
+      <recent name="$PROJECT_DIR$/packages/web" />
       <recent name="$PROJECT_DIR$/packages/components" />
       <recent name="$PROJECT_DIR$/packages/core" />
       <recent name="$PROJECT_DIR$/packages/components/src" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/packages/app/node_modules/@wow/common" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/components/src" />
       <recent name="$PROJECT_DIR$/packages/components" />
       <recent name="$PROJECT_DIR$/packages/app/node_modules/@wow/common" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.build (1)">
+  <component name="RunManager" selected="npm.start">
     <configuration name="build (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/packages/components/package.json" />
       <command value="run" />
@@ -87,8 +79,8 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/common/package.json" />
+    <configuration name="build (2)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/web/package.json" />
       <command value="run" />
       <scripts>
         <script value="build" />
@@ -107,11 +99,21 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="reset" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/web/package.json" />
       <command value="run" />
       <scripts>
-        <script value="reset" />
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="storybook" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/components/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="storybook" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -119,10 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.build (1)" />
+        <item itemvalue="npm.build (2)" />
+        <item itemvalue="npm.storybook" />
         <item itemvalue="npm.eject" />
-        <item itemvalue="npm.reset" />
-        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -144,7 +147,9 @@
       <workItem from="1649430181203" duration="59000" />
       <workItem from="1649430250935" duration="22000" />
       <workItem from="1649435103178" duration="7526000" />
-      <workItem from="1649531206650" duration="99000" />
+      <workItem from="1649531206650" duration="10604000" />
+      <workItem from="1649577433864" duration="298000" />
+      <workItem from="1649577756615" duration="3547000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1649438609298</created>
@@ -153,7 +158,56 @@
       <option name="project" value="LOCAL" />
       <updated>1649438609298</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="working monorepo version with ios">
+      <created>1649531368549</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1649531368549</updated>
+    </task>
+    <task id="LOCAL-00003" summary="attempted to configure android mono repo, however unable to install com.facebook.react:react-native because looking in app/node_modules. To fix I no-hoisted react-native. Build worked but something funny was up with module resolution as getting error similar to https://stackoverflow.com/questions/61523161">
+      <created>1649539833219</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1649539833219</updated>
+    </task>
+    <task id="LOCAL-00004" summary="remaining config to get it working on Android - turns out $rootDir isn't the root dir defined in gradle or the --root-dir flag :/">
+      <created>1649544151955</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1649544151955</updated>
+    </task>
+    <task id="LOCAL-00005" summary="remaining config to get it working on Android - turns out $rootDir isn't the root dir defined in gradle or the --root-dir flag :/">
+      <created>1649603757649</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1649603757649</updated>
+    </task>
+    <task id="LOCAL-00006" summary="remaining config to get it working on Android - turns out $rootDir isn't the root dir defined in gradle or the --root-dir flag :/">
+      <created>1649603803094</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1649603803094</updated>
+    </task>
+    <task id="LOCAL-00007" summary="remaining config to get it working on Android - turns out $rootDir isn't the root dir defined in gradle or the --root-dir flag :/&#10;&#10;Also got react-native-web configured in 'web' package">
+      <created>1649604254623</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1649604254623</updated>
+    </task>
+    <task id="LOCAL-00008" summary="react-native-web configured in 'web' package">
+      <created>1649604954507</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1649604954507</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +227,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="working monorepo version with ios" />
+    <MESSAGE value="attempted to configure android mono repo, however unable to install com.facebook.react:react-native because looking in app/node_modules. To fix I no-hoisted react-native. Build worked but something funny was up with module resolution as getting error similar to https://stackoverflow.com/questions/61523161" />
+    <MESSAGE value="setup web (react-native-web) package" />
+    <MESSAGE value="remaining config to get it working on Android - turns out $rootDir isn't the root dir defined in gradle or the --root-dir flag :/" />
+    <MESSAGE value="remaining config to get it working on Android - turns out $rootDir isn't the root dir defined in gradle or the --root-dir flag :/&#10;&#10;Also got react-native-web configured in 'web' package" />
+    <MESSAGE value="react-native-web configured in 'web' package" />
+    <option name="LAST_COMMIT_MESSAGE" value="react-native-web configured in 'web' package" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
