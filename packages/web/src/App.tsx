@@ -1,3 +1,3 @@
-import App from '@penge-pantry/components';
+import App from '@pengepantry/core';
 
 export default App;

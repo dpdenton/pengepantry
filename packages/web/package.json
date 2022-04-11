@@ -1,9 +1,9 @@
 {
-  "name": "react-native-web-workout-series",
+  "name": "@pengepantry/web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@penge-pantry/components": "1.0.0"
+    "@pengepantry/core": "0.1.0"
   },
   "scripts": {
     "start": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts start",

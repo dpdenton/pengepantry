@@ -15,7 +15,7 @@ import {
   View,
 } from 'react-native';
 
-import App from '@penge-pantry/components'
+import App from '@pengepantry/core'
 
 // const App = () => {
 //

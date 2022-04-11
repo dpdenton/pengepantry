@@ -1,6 +1,6 @@
 {
-  "name": "@penge-pantry/components",
-  "version": "1.0.0",
+  "name": "@pengepantry/core",
+  "version": "0.1.0",
   "private": false,
   "main": "dist/index.js",
   "scripts": {

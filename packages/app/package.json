@@ -1,6 +1,6 @@
 {
-  "name": "app",
-  "version": "0.0.1",
+  "name": "@pengepantry/app",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android  --root '../../'",
@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@penge-pantry/components": "1.0.0",
+    "@pengepantry/core": "0.1.0",
     "react": "17.0.2",
     "react-native": "0.68.0"
   },

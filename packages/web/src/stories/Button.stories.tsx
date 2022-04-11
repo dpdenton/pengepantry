@@ -1,5 +1,5 @@
 // Button.stories.js|jsx|ts|tsx
-import App from '@penge-pantry/components'
+import App from '@pengepantry/core'
 const Button = () => <button>Hello</button>
 export default {
   /* 👇 The title prop is optional.
