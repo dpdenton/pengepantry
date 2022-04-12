@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/native';
-import {fontSizes, poppins} from 'constants/fonts';
 import {TextProps} from 'react-native';
+import {fonts, fontSizes} from 'theme/fonts';
 
 export enum FontWeight {
   Regular,
@@ -29,8 +29,8 @@ export const AppText: React.FC<Props> = ({
 };
 
 const weightMap: {[key in FontWeight]: string} = {
-  [FontWeight.Regular]: poppins.regular,
-  [FontWeight.Bold]: poppins.medium,
+  [FontWeight.Regular]: fonts.PRIMARY_REGULAR,
+  [FontWeight.Bold]: fonts.PRIMARY_BOLD,
 };
 
 const TextStyle = styled.Text<Props>`

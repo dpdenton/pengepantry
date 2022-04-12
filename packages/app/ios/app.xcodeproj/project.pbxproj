@@ -14,6 +14,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-app-appTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-app-appTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		7A5A6351AFC248EC9B548347 /* CamphorProBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 96BC8E3B46A84B798EECF61F /* CamphorProBold.otf */; };
+		636C07B400F04FCEB0F3EB49 /* CamphorProMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE07BE51FD4647248411ABD4 /* CamphorProMedium.otf */; };
+		F8A075FBC23C4F398F4469FF /* CamphorProRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C64B8CD4C47740A4A1BDD10E /* CamphorProRegular.otf */; };
+		DB095A36C9FE4A52BC7BECAC /* CamphorProRegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 923737609EB1454FB8A1FCE8 /* CamphorProRegularItalic.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = app/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-app-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app-appTests.release.xcconfig"; path = "Target Support Files/Pods-app-appTests/Pods-app-appTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		96BC8E3B46A84B798EECF61F /* CamphorProBold.otf */ = {isa = PBXFileReference; name = "CamphorProBold.otf"; path = "../assets/fonts/CamphorProBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DE07BE51FD4647248411ABD4 /* CamphorProMedium.otf */ = {isa = PBXFileReference; name = "CamphorProMedium.otf"; path = "../assets/fonts/CamphorProMedium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C64B8CD4C47740A4A1BDD10E /* CamphorProRegular.otf */ = {isa = PBXFileReference; name = "CamphorProRegular.otf"; path = "../assets/fonts/CamphorProRegular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		923737609EB1454FB8A1FCE8 /* CamphorProRegularItalic.otf */ = {isa = PBXFileReference; name = "CamphorProRegularItalic.otf"; path = "../assets/fonts/CamphorProRegularItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				1AD341B8BE7F4378A83C33C3 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +156,18 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		1AD341B8BE7F4378A83C33C3 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				96BC8E3B46A84B798EECF61F /* CamphorProBold.otf */,
+				DE07BE51FD4647248411ABD4 /* CamphorProMedium.otf */,
+				C64B8CD4C47740A4A1BDD10E /* CamphorProRegular.otf */,
+				923737609EB1454FB8A1FCE8 /* CamphorProRegularItalic.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +265,10 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				7A5A6351AFC248EC9B548347 /* CamphorProBold.otf in Resources */,
+				636C07B400F04FCEB0F3EB49 /* CamphorProMedium.otf in Resources */,
+				F8A075FBC23C4F398F4469FF /* CamphorProRegular.otf in Resources */,
+				DB095A36C9FE4A52BC7BECAC /* CamphorProRegularItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
