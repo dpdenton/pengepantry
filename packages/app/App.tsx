@@ -1,6 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, ScrollView, StatusBar} from 'react-native';
 import {ListItem} from '@pengepantry/core/lib/components/list-item/ListItem';
+import {Icon} from '@pengepantry/core/lib/icons/Icon';
 const App = () => {
   return (
     <>
@@ -10,6 +11,7 @@ const App = () => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}
         >
+          <Icon name="burgerMenu" />
           <ListItem
             item={{
               url: 'https://eadn-wc02-3894996.nxedge.io/wp-content/uploads/2018/01/pistachio-turmeric-rice-bowl6-1024x683.jpg',

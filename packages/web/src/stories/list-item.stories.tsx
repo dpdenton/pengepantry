@@ -14,5 +14,6 @@ export const RecipeListItem = () => (
     item={{
       url: 'https://eadn-wc02-3894996.nxedge.io/wp-content/uploads/2018/01/pistachio-turmeric-rice-bowl6-1024x683.jpg',
     }}
+    onPress={() => {}}
   />
 );

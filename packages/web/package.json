@@ -6,7 +6,6 @@
     "@pengepantry/core": "0.1.0"
   },
   "scripts": {
-    "dev": "yarn start && yarn storybook",
     "start": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts start",
     "build": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts build",
     "test": "react-scripts test",
