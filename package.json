@@ -2,6 +2,7 @@
   "name": "pengepantry",
   "private": true,
   "scripts": {
+    "dev": "yarn workspaces run dev",
     "reset": "find . -type dir -name node_modules | xargs rm -rf && rm -rf yarn.lock"
   },
   "workspaces": {

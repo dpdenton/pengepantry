@@ -1,10 +1,11 @@
 {
   "name": "@pengepantry/core",
   "version": "0.1.0",
-  "private": false,
-  "main": "dist/index.js",
+  "private": true,
+  "main": "lib/index.js",
   "scripts": {
-    "build": "tsc --watch"
+    "build": "tsc && tsc-alias",
+    "build:watch": "tsc -w & tsc-alias -w"
   },
   "dependencies": {
     "@emotion/native": "^11.0.0",
@@ -13,6 +14,9 @@
     "react-native-web": "^0.17.7"
   },
   "devDependencies": {
+    "@types/module-alias": "^2.0.1",
+    "module-alias": "^2.2.2",
+    "tsc-alias": "^1.6.6",
     "typescript": "^4.6.3"
   }
 }

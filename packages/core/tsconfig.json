@@ -8,14 +8,17 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
-    "outDir": "dist",
+    "outDir": "lib",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
     "declaration": true,
     "jsx": "react",
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "paths": {
+      "~/*": ["*"]
+    }
   },
   "include": ["src"]
 }

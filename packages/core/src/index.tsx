@@ -8,7 +8,7 @@ import {
   StatusBar,
 } from 'react-native';
 
-import styled from "@emotion/native";
+import styled from '@emotion/native';
 
 const App = () => {
   return (
@@ -17,12 +17,15 @@ const App = () => {
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <StyledView><Text style={styles.sectionTitle}>Dont matter</Text></StyledView>
+          style={styles.scrollView}
+        >
+          <StyledView>
+            <Text style={styles.sectionTitle}>Dont matter</Text>
+          </StyledView>
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionDescription}>
-                This is a story :) - edit me and I'll update
+                This is a story :) - edit me and I'll update - how cool
               </Text>
             </View>
           </View>
@@ -33,14 +36,12 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-  },
+  scrollView: {},
   engine: {
     position: 'absolute',
     right: 0,
   },
-  body: {
-  },
+  body: {},
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
@@ -68,6 +69,6 @@ const styles = StyleSheet.create({
 
 const StyledView = styled.View`
   background-color: aqua;
-`
+`;
 
 export default App;

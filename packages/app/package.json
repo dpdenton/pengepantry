@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "android": "react-native run-android  --root '../../'",
+    "android": "react-native run-android",
+    "android:emulator": "~/Library/Android/sdk/tools/emulator @Pixel_4a_API_Tiramisu",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",

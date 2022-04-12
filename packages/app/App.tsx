@@ -8,25 +8,5 @@
  * @format
  */
 
-import React from 'react';
-import {
-  SafeAreaView,
-  Text,
-  View,
-} from 'react-native';
-
-import App from '@pengepantry/core'
-
-// const App = () => {
-//
-//   return (
-//     <SafeAreaView>
-//       <View>
-//         <Text>Hello David
-//         </Text>
-//       </View>
-//     </SafeAreaView>
-//   );
-// };
-
+import App from '@pengepantry/core';
 export default App;
