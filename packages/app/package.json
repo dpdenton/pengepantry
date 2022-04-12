@@ -35,6 +35,9 @@
   "resolutions": {
     "@types/react": "^17"
   },
+  "workspaces": {
+    "nohoist": ["react-native-svg"]
+  },
   "jest": {
     "preset": "react-native",
     "moduleFileExtensions": [
