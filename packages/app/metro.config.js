@@ -4,16 +4,25 @@
  *
  * @format
  */
+const path = require('path');
+const {getDefaultConfig, mergeConfig} = require('metro-config');
 
-const path = require("path");
-module.exports = {
-  projectRoot: path.resolve(__dirname, '../../'),
-  transformer: {
-    getTransformOptions: async () => ({
-      transform: {
-        experimentalImportSupport: false,
-        inlineRequires: true,
+module.exports = (async () => {
+  const {
+    resolver: {sourceExts},
+  } = await getDefaultConfig();
+  return {
+    projectRoot: path.resolve(__dirname, '../../'),
+    transformer: {
+      getTransformOptions: async () => ({
+        transform: {
+          experimentalImportSupport: false,
+          inlineRequires: true,
+        },
+      }),
+      resolver: {
+        sourceExts: [...sourceExts, 'cjs'],
       },
-    }),
-  },
-};
+    },
+  };
+})();

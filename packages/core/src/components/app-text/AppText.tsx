@@ -21,7 +21,6 @@ export const AppText: React.FC<Props> = ({
   color,
   ...textProps
 }) => {
-  console.log({platform: Platform.OS});
   return <TextStyle {...textProps}>{children}</TextStyle>;
 };
 

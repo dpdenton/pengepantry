@@ -5,8 +5,11 @@ export const fonts = {
   PRIMARY_REGULAR_ITALIC: 'CamphorProRegularItalic',
 };
 
-export const fontSizes = {
+export const fontSizes: {[key: string]: number} = {
   xs: 10,
   s: 12,
   m: 14,
+  l: 16,
+  xl: 18,
+  xxl: 20,
 };

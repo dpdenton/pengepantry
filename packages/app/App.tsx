@@ -1,25 +1,35 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, ScrollView, StatusBar} from 'react-native';
-import {ListItem} from '@pengepantry/core/lib/components/list-item/ListItem';
+import {StyleSheet, StatusBar} from 'react-native';
+import {Provider} from 'react-redux';
+import {ThemeProvider} from '@emotion/react';
+
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {reduxStore} from '@pengepantry/core/lib/store/recipeStore';
+import {Home} from './src/screens/home/Home';
+import Navigation from './src/navigation/root';
+
+const backgroundColor = '#FAFAFA';
+
+const theme = {
+  debug: true,
+  colors: {
+    backgroundColor,
+  },
+};
 
 const App = () => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}
-        >
-          <ListItem
-            item={{
-              url: 'https://eadn-wc02-3894996.nxedge.io/wp-content/uploads/2018/01/pistachio-turmeric-rice-bowl6-1024x683.jpg',
-            }}
-            onPress={() => {}}
+    <SafeAreaProvider>
+      <ThemeProvider theme={theme}>
+        <Provider store={reduxStore}>
+          <StatusBar
+            backgroundColor={backgroundColor}
+            barStyle="dark-content"
           />
-        </ScrollView>
-      </SafeAreaView>
-    </>
+          <Navigation />
+        </Provider>
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 };
 
