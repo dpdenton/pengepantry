@@ -11,13 +11,11 @@ import {
 } from '@react-navigation/native-stack';
 import * as React from 'react';
 import {StyleProp, TextStyle} from 'react-native';
-import {Home} from '../screens/home/Home';
-import {RootStackParamList} from './types';
-import {AppView} from '@pengepantry/core/lib/components/layout/AppView';
-import {AppText} from '@pengepantry/core/lib/components/app-text/AppText';
 import {Icon} from '@pengepantry/core/lib/icons/Icon';
-import NotFoundScreen from '../screens/NotFoundScreen';
 import {fonts} from '@pengepantry/core/lib/theme/fonts';
+import NotFoundScreen from 'screens/NotFoundScreen';
+import {Home} from 'screens/home/Home';
+import {RootStackParamList} from './types';
 
 export default function Navigation() {
   return (
@@ -32,14 +30,6 @@ export default function Navigation() {
  * https://reactnavigation.org/docs/modal
  */
 const Stack = createNativeStackNavigator<RootStackParamList>();
-
-const options: NativeStackNavigationOptions = {
-  headerCenter: () => (
-    <AppView style={defaultHeaderBStyle}>
-      <AppText style={defaultHeaderTitleStyle}>Home</AppText>
-    </AppView>
-  ),
-};
 
 export const defaultScreenOptions: (navigationOptionsContainer: {
   navigation: NativeStackNavigationProp<Record<string, never>>;
@@ -57,7 +47,7 @@ export const defaultScreenOptions: (navigationOptionsContainer: {
 function RootNavigator() {
   return (
     <Stack.Navigator screenOptions={defaultScreenOptions}>
-      <Stack.Screen name="Home" component={Home} options={options} />
+      <Stack.Screen name="Home" component={Home} />
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}

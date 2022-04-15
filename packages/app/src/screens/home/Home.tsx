@@ -31,6 +31,7 @@ export function Home() {
   }
   return (
     <Screen>
+      <Spacer size={16} />
       <SearchBar />
       <Spacer size={28} />
       <ScrollView>

@@ -21,7 +21,7 @@ module.exports = (async () => {
         },
       }),
       resolver: {
-        sourceExts: [...sourceExts, 'cjs'],
+        sourceExts: [...sourceExts],
       },
     },
   };
