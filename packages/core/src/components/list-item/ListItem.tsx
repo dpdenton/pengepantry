@@ -5,6 +5,7 @@ import {Button} from 'components/button/Button';
 import {AppView} from 'components/layout/AppView';
 import {CenteredFlexRow} from 'components/layout/FlexRow';
 import {AppText, FontWeight} from 'components/app-text/AppText';
+import {Icon} from 'icons/Icon';
 
 interface Item {
   url: string;
@@ -33,6 +34,7 @@ export const ListItem: React.FC<Props> = ({item, onPress}) => {
       />
       <ListItemDescriptionView>
         <CenteredFlexRow style={{justifyContent: 'space-between'}}>
+          <Icon name="burgerMenu" />
           <AppView>
             <AppText weight={FontWeight.Bold}>Crazy house party</AppText>
             <AppText>12 July 2021 - 09:00 pm</AppText>

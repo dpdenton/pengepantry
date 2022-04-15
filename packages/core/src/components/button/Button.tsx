@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/native';
-import {TouchableOpacity, TouchableOpacityProps} from 'react-native';
+import {TouchableOpacity, TouchableOpacityProps, Text} from 'react-native';
 import {AppText, FontWeight} from 'components/app-text/AppText';
 
 interface Props extends TouchableOpacityProps {
@@ -10,9 +10,7 @@ interface Props extends TouchableOpacityProps {
 export const Button: React.FC<Props> = ({label, ...props}) => {
   return (
     <ButtonView {...props}>
-      <AppText weight={FontWeight.Bold} color="white">
-        {label}
-      </AppText>
+      <AppText color="white">{label}</AppText>
     </ButtonView>
   );
 };
