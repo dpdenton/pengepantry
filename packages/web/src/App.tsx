@@ -1,4 +1,3 @@
-import {BurgerMenu} from '@pengepantry/core/lib/icons/BurgerMenu';
 import {Icon} from '@pengepantry/core/lib/icons/Icon';
 
 const App = () => {
