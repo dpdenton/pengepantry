@@ -8,7 +8,7 @@ import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
   NativeStackNavigationProp,
-} from 'react-native-screens/native-stack';
+} from '@react-navigation/native-stack';
 import * as React from 'react';
 import {StyleProp, TextStyle} from 'react-native';
 import {Home} from '../screens/home/Home';
