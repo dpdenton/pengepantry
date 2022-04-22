@@ -10,6 +10,6 @@ export const ScreenView = styled.View<AppTheme>`
   display: flex;
   flex-direction: column;
   padding: 7px 14px;
-  background-color: ${props => props.theme.colors.backgroundColor};
   height: 100%;
+  background-color: ${props => props.theme.secondary.inverse};
 `;

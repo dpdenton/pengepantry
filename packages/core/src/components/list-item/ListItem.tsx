@@ -1,5 +1,5 @@
-import React, {useRef} from 'react';
-import {Image, Animated} from 'react-native';
+import React from 'react';
+import {Animated, StyleProp, ImageStyle} from 'react-native';
 import styled from '@emotion/native';
 import {Button} from 'components/button/Button';
 import {AppView} from 'components/layout/AppView';
@@ -8,30 +8,22 @@ import {AppText, FontWeight} from 'components/app-text/AppText';
 import {Icon} from 'icons/Icon';
 
 interface Item {
+  id: string;
   url: string;
 }
-interface Props {
+export interface ListItemProps {
   item: Item;
   onPress: () => void;
+  imageStyle?: Animated.Animated;
 }
-export const ListItem: React.FC<Props> = ({item, onPress}) => {
-  const imageRef = useRef<Image | null>(null);
-  const animated = useRef(new Animated.Value(1)).current;
-
+export const ListItem: React.FC<ListItemProps> = ({
+  item,
+  onPress,
+  imageStyle,
+}) => {
   return (
     <ListItemView>
-      <ListItemImage
-        ref={imageRef}
-        source={{uri: item.url}}
-        style={{
-          opacity: animated,
-          transform: [
-            {
-              scale: animated,
-            },
-          ],
-        }}
-      />
+      <ListItemImage source={{uri: item.url}} style={imageStyle} />
       <ListItemDescriptionView>
         <CenteredFlexRow style={{justifyContent: 'space-between'}}>
           <Icon name="burgerMenu" />
