@@ -4,18 +4,14 @@
  *
  */
 import {NavigationContainer} from '@react-navigation/native';
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationOptions,
-  NativeStackNavigationProp,
-} from '@react-navigation/native-stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as React from 'react';
 import {StyleProp, TextStyle} from 'react-native';
-import {Icon} from '@pengepantry/core/lib/icons/Icon';
 import {fonts} from '@pengepantry/core/lib/theme/fonts';
 import NotFoundScreen from 'screens/NotFoundScreen';
 import {Home} from 'screens/home/Home';
 import {RootStackParamList} from './types';
+import {appTheme} from '@pengepantry/core/lib/theme';
 
 export default function Navigation() {
   return (
@@ -25,33 +21,33 @@ export default function Navigation() {
   );
 }
 
+const getDefaultScreenOptions = () => {
+  return {
+    headerShadowVisible: false, // applied here
+    headerStyle: {
+      backgroundColor: appTheme.secondary.inverse,
+    },
+  };
+};
+
 /**
  * A root stack navigator is often used for displaying modals on top of all other content.
  * https://reactnavigation.org/docs/modal
  */
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-export const defaultScreenOptions: (navigationOptionsContainer: {
-  navigation: NativeStackNavigationProp<Record<string, never>>;
-}) => NativeStackNavigationOptions = () => ({
-  // ...defaultHeaderStatusBarHeight,
-  headerTopInsetEnabled: false,
-  headerHideShadow: true,
-  headerLeft: () => <Icon name="burgerMenu" />,
-  headerRight: () => <Icon name="burgerMenu" />,
-  headerStyle: {
-    backgroundColor: '#FAFAFA',
-  },
-});
-
 function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={defaultScreenOptions}>
-      <Stack.Screen name="Home" component={Home} />
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={getDefaultScreenOptions()}
+      />
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
-        options={{title: 'Oops!'}}
+        options={{...getDefaultScreenOptions(), title: 'Oops!'}}
       />
     </Stack.Navigator>
   );
