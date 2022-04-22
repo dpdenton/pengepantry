@@ -73,7 +73,7 @@ type RecipeOrderReducers = {
   setRecipeOneId: (
     state: RecipeOrderStore,
     payload: PayloadAction<string | undefined>,
-  ) => void;
+  ) => RecipeOrderStore;
   setRecipeTwoId: (
     state: RecipeOrderStore,
     payload: PayloadAction<string | undefined>,
@@ -99,6 +99,7 @@ export const selectionsSlice = createSlice<
   reducers: {
     setRecipeOneId: (state, {payload}) => {
       state.selectedRecipeIds.recipeOneId = payload;
+      return state;
     },
     setRecipeTwoId: (state, {payload}) => {
       state.selectedRecipeIds.recipeTwoId = payload;

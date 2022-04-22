@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/native';
-import {TextProps, Platform} from 'react-native';
+import {TextProps} from 'react-native';
 import {fonts, fontSizes} from 'theme/fonts';
 
 export enum FontWeight {
@@ -11,7 +11,9 @@ export enum FontWeight {
 interface Props extends TextProps {
   weight?: FontWeight;
   size?: number;
-  color?: 'white' | 'black';
+  color?: string;
+  backgroundColor?: string;
+  borderColor?: string;
 }
 
 export const AppText: React.FC<Props> = ({
@@ -21,7 +23,11 @@ export const AppText: React.FC<Props> = ({
   color,
   ...textProps
 }) => {
-  return <TextStyle {...textProps}>{children}</TextStyle>;
+  return (
+    <TextStyle weight={weight} size={size} color={color} {...textProps}>
+      {children}
+    </TextStyle>
+  );
 };
 
 const weightMap: {[key in FontWeight]: string} = {

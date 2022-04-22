@@ -1,8 +1,4 @@
+import {appTheme} from 'theme/index';
 export interface AppTheme {
-  theme?: {
-    debug: boolean;
-    colors: {
-      backgroundColor: string;
-    };
-  };
+  theme?: typeof appTheme;
 }

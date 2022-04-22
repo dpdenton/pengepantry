@@ -1,7 +1,6 @@
 import React, {Fragment, useEffect} from 'react';
 import {ScrollView} from 'react-native';
 import {useDispatch} from 'react-redux';
-import {ListItem} from '@pengepantry/core/lib/components/list-item/ListItem';
 import {AppText} from '@pengepantry/core/lib/components/app-text/AppText';
 import {Spacer} from '@pengepantry/core/lib/components/layout/Spacer';
 import {
@@ -12,6 +11,7 @@ import {recipeStore} from '@pengepantry/core/lib/store/recipeStore';
 import {Screen} from '@pengepantry/core/lib/components/screen/Screen';
 import {OrderSummary} from '@pengepantry/core/lib/components/order-summary/OrderSummary';
 import {SearchBar} from '@pengepantry/core/lib/components/search-bar/SearchBar';
+import {ListItemRedux} from 'components/ListItem.redux';
 
 export function Home() {
   const recipes = useRecipesList();
@@ -29,6 +29,7 @@ export function Home() {
   if (product.loading) {
     return <AppText>Loading</AppText>;
   }
+
   return (
     <Screen>
       <Spacer size={16} />
@@ -37,7 +38,7 @@ export function Home() {
       <ScrollView>
         {recipes.map(recipe => (
           <Fragment key={recipe.id}>
-            <ListItem item={recipe} onPress={() => {}} />
+            <ListItemRedux item={recipe} />
             <Spacer size={28} />
           </Fragment>
         ))}
