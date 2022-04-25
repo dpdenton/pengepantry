@@ -62,25 +62,13 @@ export const recipeStore = createSlice<RecipeStore, RecipeStoreReducers>({
 });
 
 type RecipeOrderStore = {
-  selectedRecipeIds: {
-    recipeOneId: string | undefined;
-    recipeTwoId: string | undefined;
-    recipeThreeId: string | undefined;
-  };
+  selectedRecipeIds: (string | undefined)[];
 };
 
 type RecipeOrderReducers = {
-  setRecipeOneId: (
+  toggleRecipeSelection: (
     state: RecipeOrderStore,
-    payload: PayloadAction<string | undefined>,
-  ) => RecipeOrderStore;
-  setRecipeTwoId: (
-    state: RecipeOrderStore,
-    payload: PayloadAction<string | undefined>,
-  ) => void;
-  setRecipeThreeId: (
-    state: RecipeOrderStore,
-    payload: PayloadAction<string | undefined>,
+    payload: PayloadAction<string>,
   ) => void;
 };
 
@@ -90,22 +78,17 @@ export const selectionsSlice = createSlice<
 >({
   name: 'selections',
   initialState: {
-    selectedRecipeIds: {
-      recipeOneId: undefined,
-      recipeTwoId: undefined,
-      recipeThreeId: undefined,
-    },
+    selectedRecipeIds: [undefined, undefined, undefined],
   },
   reducers: {
-    setRecipeOneId: (state, {payload}) => {
-      state.selectedRecipeIds.recipeOneId = payload;
-      return state;
-    },
-    setRecipeTwoId: (state, {payload}) => {
-      state.selectedRecipeIds.recipeTwoId = payload;
-    },
-    setRecipeThreeId: (state, {payload}) => {
-      state.selectedRecipeIds.recipeThreeId = payload;
+    toggleRecipeSelection: ({selectedRecipeIds}, {payload: recipeId}) => {
+      const recipeIndex = selectedRecipeIds.indexOf(recipeId);
+      if (recipeIndex > -1) {
+        selectedRecipeIds[recipeIndex] = undefined;
+      } else {
+        const index = selectedRecipeIds.indexOf(undefined);
+        selectedRecipeIds[index] = recipeId;
+      }
     },
   },
 });

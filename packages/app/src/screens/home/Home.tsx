@@ -1,6 +1,7 @@
 import React, {Fragment, useEffect} from 'react';
 import {ScrollView} from 'react-native';
 import {useDispatch} from 'react-redux';
+import styled from '@emotion/native';
 import {AppText} from '@pengepantry/core/lib/components/app-text/AppText';
 import {Spacer} from '@pengepantry/core/lib/components/layout/Spacer';
 import {
@@ -9,9 +10,10 @@ import {
 } from '@pengepantry/core/lib/store/selectors/recipeSelectors';
 import {recipeStore} from '@pengepantry/core/lib/store/recipeStore';
 import {Screen} from '@pengepantry/core/lib/components/screen/Screen';
-import {OrderSummary} from '@pengepantry/core/lib/components/order-summary/OrderSummary';
 import {SearchBar} from '@pengepantry/core/lib/components/search-bar/SearchBar';
+import {AppView} from '@pengepantry/core/lib/components/layout/AppView';
 import {ListItemRedux} from 'components/ListItem.redux';
+import {OrderSummaryRedux} from 'components/OrderSummary.redux';
 
 export function Home() {
   const recipes = useRecipesList();
@@ -43,7 +45,16 @@ export function Home() {
           </Fragment>
         ))}
       </ScrollView>
-      <OrderSummary counter={1} />
+      <OrderSummaryContainer>
+        <OrderSummaryRedux />
+      </OrderSummaryContainer>
     </Screen>
   );
 }
+
+const OrderSummaryContainer = styled(AppView)`
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+`;

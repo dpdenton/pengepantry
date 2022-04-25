@@ -1,5 +1,5 @@
 import React from 'react';
-import {Animated, StyleProp, ImageStyle} from 'react-native';
+import {Animated} from 'react-native';
 import styled from '@emotion/native';
 import {Button} from 'components/button/Button';
 import {AppView} from 'components/layout/AppView';
@@ -7,13 +7,13 @@ import {CenteredFlexRow} from 'components/layout/FlexRow';
 import {AppText, FontWeight} from 'components/app-text/AppText';
 import {Icon} from 'icons/Icon';
 
-interface Item {
+export interface Item {
   id: string;
   url: string;
 }
 export interface ListItemProps {
   item: Item;
-  onPress: () => void;
+  onPress: (item: Item) => void;
   imageStyle?: Animated.Animated;
 }
 export const ListItem: React.FC<ListItemProps> = ({
@@ -31,7 +31,7 @@ export const ListItem: React.FC<ListItemProps> = ({
             <AppText weight={FontWeight.Bold}>Crazy house party</AppText>
             <AppText>12 July 2021 - 09:00 pm</AppText>
           </AppView>
-          <Button label={'ADD'} onPress={onPress} />
+          <Button label={'ADD'} onPress={() => onPress(item)} />
         </CenteredFlexRow>
       </ListItemDescriptionView>
     </ListItemView>

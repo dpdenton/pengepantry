@@ -6,14 +6,13 @@ export const useAppStore = <TSelection = unknown>(
   selector: (state: GlobalReduxStore) => TSelection,
 ) => useSelector(selector);
 
-export const useRecipeOne = () => {
-  const selections = useRecipeSelections();
-  return useAppStore(recipeSelector(selections.recipeOneId));
-};
-
 export const useRecipeSelections = () => {
   return useAppStore(({selections}) => selections.selectedRecipeIds);
 };
+
+export const useRecipeStore = () => {
+  return useAppStore(({recipeStore}) => recipeStore)
+}
 
 export const useRecipesList = (): Recipe[] => {
   return useAppStore<Recipe[]>(state =>
