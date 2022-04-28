@@ -11,5 +11,5 @@ export const fontSizes: {[key: string]: number} = {
   m: 14,
   l: 16,
   xl: 18,
-  xxl: 20,
+  xxl: 22,
 };

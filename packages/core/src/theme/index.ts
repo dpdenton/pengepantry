@@ -1,4 +1,4 @@
-import {colors, pink} from './colors';
+import {colors} from './colors';
 
 export const appTheme = {
   primary: {
@@ -9,10 +9,24 @@ export const appTheme = {
     color: colors.N900,
     inverse: colors.N30,
   },
-  action: {
+  text: {
     primary: {
-      color: pink.N700,
+      color: 'black',
       inverse: colors.N00,
     },
+  },
+  action: {
+    primary: {
+      color: '#ec313c',
+      inverse: colors.N00,
+    },
+  },
+  spacing: {
+    xxs: 4,
+    xs: 8,
+    s: 12,
+    m: 16,
+    l: 20,
+    xl: 24,
   },
 };

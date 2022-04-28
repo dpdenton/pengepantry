@@ -15,7 +15,7 @@ import {AppView} from '@pengepantry/core/lib/components/layout/AppView';
 import {ListItemRedux} from 'components/ListItem.redux';
 import {OrderSummaryRedux} from 'components/OrderSummary.redux';
 
-export function Home() {
+export function Menu() {
   const recipes = useRecipesList();
   const dispatch = useDispatch();
 

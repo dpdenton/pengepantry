@@ -1,5 +1,5 @@
 import React from 'react';
-import {iconData} from './IconData';
+import {iconData} from './Icon.data';
 
 interface Props {
   name: keyof typeof iconData;
@@ -21,13 +21,17 @@ export const Icon: React.FC<Props> = ({name}) => {
         fillRule="evenodd"
       >
         <g id="Group">
-          <path
-            d={icon.path}
-            id="Icon"
-            fill="currentColor"
-            fillRule="nonzero"
-          />
-          <rect id="Rectangle" x="0" y="0" width="24" height="24" />
+          {icon.paths.map((path, index) => {
+            return (
+              <path
+                key={index}
+                d={path}
+                id="Icon"
+                fill="currentColor"
+                fillRule="nonzero"
+              />
+            );
+          })}
         </g>
       </g>
     </svg>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Animated} from 'react-native';
 import styled from '@emotion/native';
-import {FlexRow} from 'components/layout/FlexRow';
+import {Row} from 'components/layout/Row';
 
 interface Props {
   uri: string;
@@ -23,7 +23,7 @@ export const RecipeSelection: React.FC<Props> = ({uri, scale}) => {
   );
 };
 
-const OrderItem = styled(FlexRow)`
+const OrderItem = styled(Row)`
   width: 25%;
   flex-grow: 1;
   justify-content: center;

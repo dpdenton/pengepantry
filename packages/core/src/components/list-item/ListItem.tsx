@@ -3,8 +3,8 @@ import {Animated} from 'react-native';
 import styled from '@emotion/native';
 import {Button} from 'components/button/Button';
 import {AppView} from 'components/layout/AppView';
-import {CenteredFlexRow} from 'components/layout/FlexRow';
-import {AppText, FontWeight} from 'components/app-text/AppText';
+import {CenteredRow} from 'components/layout/Row';
+import {AppText} from 'components/app-text/AppText';
 import {Icon} from 'icons/Icon';
 
 export interface Item {
@@ -25,14 +25,16 @@ export const ListItem: React.FC<ListItemProps> = ({
     <ListItemView>
       <ListItemImage source={{uri: item.url}} style={imageStyle} />
       <ListItemDescriptionView>
-        <CenteredFlexRow style={{justifyContent: 'space-between'}}>
+        <CenteredRow style={{justifyContent: 'space-between'}}>
           <Icon name="burgerMenu" />
           <AppView>
-            <AppText weight={FontWeight.Bold}>Crazy house party</AppText>
-            <AppText>12 July 2021 - 09:00 pm</AppText>
+            <AppText variant="p2" weight="bold">
+              Crazy house party
+            </AppText>
+            <AppText variant="p2">12 July 2021 - 09:00 pm</AppText>
           </AppView>
           <Button label={'ADD'} onPress={() => onPress(item)} />
-        </CenteredFlexRow>
+        </CenteredRow>
       </ListItemDescriptionView>
     </ListItemView>
   );

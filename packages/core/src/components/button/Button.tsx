@@ -25,7 +25,9 @@ export const Button: React.FC<Props> = ({
 }) => {
   return (
     <ButtonView background={backgroundColorMap[type]} {...props}>
-      <AppText color={colorMap[type]}>{label}</AppText>
+      <AppText color={colorMap[type]} weight="bold">
+        {label}
+      </AppText>
     </ButtonView>
   );
 };
@@ -34,5 +36,7 @@ const ButtonView = styled(TouchableOpacity)<{background: string}>`
   background: ${props => props.background};
   border-radius: 17px;
   text-align: center;
-  padding: 9px 34px 7px;
+  padding: 10px 34px;
+  justify-content: center;
+  flex-direction: row;
 `;

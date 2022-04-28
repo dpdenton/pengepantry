@@ -8,10 +8,15 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as React from 'react';
 import {StyleProp, TextStyle} from 'react-native';
 import {fonts} from '@pengepantry/core/lib/theme/fonts';
-import NotFoundScreen from 'screens/NotFoundScreen';
-import {Home} from 'screens/home/Home';
+import {Menu} from 'screens/Menu';
 import {RootStackParamList} from './types';
 import {appTheme} from '@pengepantry/core/lib/theme';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {BottomBar} from 'components/bottom-bar/BottomBar';
+import {Home} from 'screens/Home';
+import {Profile} from 'screens/Profile';
+
+const Tab = createBottomTabNavigator();
 
 export default function Navigation() {
   return (
@@ -38,18 +43,23 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator>
+    <Tab.Navigator tabBar={BottomBar}>
       <Stack.Screen
         name="Home"
         component={Home}
         options={getDefaultScreenOptions()}
       />
       <Stack.Screen
-        name="NotFound"
-        component={NotFoundScreen}
-        options={{...getDefaultScreenOptions(), title: 'Oops!'}}
+        name="Menu"
+        component={Menu}
+        options={getDefaultScreenOptions()}
       />
-    </Stack.Navigator>
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={getDefaultScreenOptions()}
+      />
+    </Tab.Navigator>
   );
 }
 

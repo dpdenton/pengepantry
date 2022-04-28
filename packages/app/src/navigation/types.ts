@@ -4,16 +4,19 @@
  */
 
 import {NavigatorScreenParams} from '@react-navigation/native';
+import {Profile} from 'screens/Profile';
 
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace ReactNavigation {
-    type RootParamList = RootStackParamList;
-  }
-}
+// declare global {
+//   // eslint-disable-next-line @typescript-eslint/no-namespace
+//   namespace ReactNavigation {
+//     type RootParamList = RootStackParamList;
+//   }
+// }
 
 export type RootStackParamList = {
   Home: undefined;
+  Menu: undefined;
+  Profile: undefined;
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
   NotFound: undefined;
