@@ -7,7 +7,11 @@ import {CenteredRow} from 'components/layout/Row';
 import {appTheme} from 'theme';
 import {ColMedium} from 'components/layout/Spacer';
 
-export const RecipeButton = () => {
+interface Props {
+  onPress: () => void;
+}
+
+export const RecipeButton: React.FC<Props> = ({onPress}) => {
   return (
     <Card padding={appTheme.spacing.l}>
       <ImageRow>
@@ -28,7 +32,7 @@ export const RecipeButton = () => {
         />
       </ImageRow>
       <ColMedium />
-      <Button label="SELECT RECIPES" />
+      <Button label="SELECT RECIPES" onPress={onPress} />
     </Card>
   );
 };

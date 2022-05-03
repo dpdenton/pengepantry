@@ -4,27 +4,12 @@
  */
 
 import {NavigatorScreenParams} from '@react-navigation/native';
-import {Profile} from 'screens/Profile';
-
-// declare global {
-//   // eslint-disable-next-line @typescript-eslint/no-namespace
-//   namespace ReactNavigation {
-//     type RootParamList = RootStackParamList;
-//   }
-// }
+import {HomeStackParamList} from 'navigation/home/types';
 
 export type RootStackParamList = {
-  Home: undefined;
-  Menu: undefined;
+  Home: NavigatorScreenParams<HomeStackParamList>;
   Profile: undefined;
-  Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
-  NotFound: undefined;
-};
-
-export type RootTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
 };
 
 export type Maybe<T> = T | null;

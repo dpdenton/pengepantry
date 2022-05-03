@@ -16,6 +16,7 @@ export const RecipeSelection: React.FC<Props> = ({uri, scale}) => {
         style={{
           width: '100%',
           height: 40,
+          borderRadius: 10,
           transform: [{scale}],
         }}
       />
@@ -27,6 +28,9 @@ const OrderItem = styled(Row)`
   width: 25%;
   flex-grow: 1;
   justify-content: center;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: gainsboro;
 `;
 
 const SelectionImageView = styled(Animated.Image)``;

@@ -1,8 +1,7 @@
 import React, {Fragment, useEffect} from 'react';
-import {ScrollView} from 'react-native';
+import {ActivityIndicator, ScrollView} from 'react-native';
 import {useDispatch} from 'react-redux';
 import styled from '@emotion/native';
-import {AppText} from '@pengepantry/core/lib/components/app-text/AppText';
 import {Spacer} from '@pengepantry/core/lib/components/layout/Spacer';
 import {
   useAppStore,
@@ -15,7 +14,7 @@ import {AppView} from '@pengepantry/core/lib/components/layout/AppView';
 import {ListItemRedux} from 'components/ListItem.redux';
 import {OrderSummaryRedux} from 'components/OrderSummary.redux';
 
-export function Menu() {
+export const MenuSelection = () => {
   const recipes = useRecipesList();
   const dispatch = useDispatch();
 
@@ -29,7 +28,16 @@ export function Menu() {
   }, [dispatch]);
 
   if (product.loading) {
-    return <AppText>Loading</AppText>;
+    return (
+      <AppView
+        style={{
+          height: '100%',
+          justifyContent: 'center',
+        }}
+      >
+        <ActivityIndicator />
+      </AppView>
+    );
   }
 
   return (
@@ -50,11 +58,11 @@ export function Menu() {
       </OrderSummaryContainer>
     </Screen>
   );
-}
+};
 
 const OrderSummaryContainer = styled(AppView)`
   position: absolute;
-  left: 24px;
-  right: 24px;
-  bottom: 24px;
+  left: 0;
+  right: 0;
+  bottom: 0;
 `;

@@ -28,6 +28,17 @@ initialStoreValues.set('3', {
   name: 'Honey roast chicken',
 });
 
+initialStoreValues.set('4', {
+  id: '4',
+  url: 'https://img.delicious.com.au/5aLcV7cG/del/2021/05/slow-roasted-butter-eggplant-curry-152139-2.jpg',
+  name: 'Some other shit',
+});
+initialStoreValues.set('5', {
+  id: '5',
+  url: 'https://img.delicious.com.au/5aLcV7cG/del/2021/05/slow-roasted-butter-eggplant-curry-152139-2.jpg',
+  name: 'Only on the high street',
+});
+
 export interface RecipeStore {
   loading: boolean;
   recipe: Nullable<Recipe>;

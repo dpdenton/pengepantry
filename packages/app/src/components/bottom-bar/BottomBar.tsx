@@ -7,6 +7,7 @@ import {Icon} from '@pengepantry/core/lib/icons/Icon';
 import {IconName} from '@pengepantry/core/lib/icons/Icon';
 import {AppText} from '@pengepantry/core/lib/components/app-text/AppText';
 import {CenteredColumn} from '@pengepantry/core/lib/components/layout/Column';
+import {useRoute} from '@react-navigation/native';
 
 const iconRouteMap: {[key: string]: IconName} = {
   Home: 'home',
@@ -19,6 +20,7 @@ export const BottomBar: React.FC<BottomTabBarProps> = ({
   descriptors,
   navigation,
 }) => {
+  return null;
   return (
     <BottomBarRow>
       {state.routes.map((route, index) => {
