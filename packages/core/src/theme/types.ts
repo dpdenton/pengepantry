@@ -1,4 +1,6 @@
 import {appTheme} from 'theme/index';
 export interface AppTheme {
-  theme?: typeof appTheme;
+  theme?: AppThemeProps;
 }
+
+export type AppThemeProps = typeof appTheme;

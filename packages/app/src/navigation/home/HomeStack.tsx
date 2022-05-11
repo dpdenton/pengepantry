@@ -1,27 +1,33 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {HomeRoute, HomeStackParamList} from 'navigation/home/types';
+import {MenuRoute, HomeStackParamList} from 'navigation/home/types';
 import {Home} from 'screens/home/Home';
 import {MenuSelection} from 'screens/home/MenuSelection';
 import {getDefaultScreenOptions} from 'navigation/RootStack';
 import {MenuReview} from 'screens/home/MenuReview';
+import {RecipeDetailScreen} from 'screens/home/RecipeDetail';
 
 const Stack = createNativeStackNavigator<HomeStackParamList>();
 
 export const HomeStack = () => (
-  <Stack.Navigator initialRouteName={HomeRoute.MenuMain}>
+  <Stack.Navigator initialRouteName={MenuRoute.MenuHome}>
     <Stack.Screen
-      name={HomeRoute.MenuMain}
+      name={MenuRoute.MenuHome}
       component={Home}
       options={getDefaultScreenOptions({title: 'Home'})}
     />
     <Stack.Screen
-      name={HomeRoute.MenuSelection}
+      name={MenuRoute.MenuSelection}
       component={MenuSelection}
       options={getDefaultScreenOptions({title: 'Menu'})}
     />
     <Stack.Screen
-      name={HomeRoute.MenuReview}
+      name={MenuRoute.RecipeDetail}
+      component={RecipeDetailScreen}
+      options={getDefaultScreenOptions({title: 'Recipe'})}
+    />
+    <Stack.Screen
+      name={MenuRoute.MenuReview}
       component={MenuReview}
       options={getDefaultScreenOptions({title: 'Review'})}
     />

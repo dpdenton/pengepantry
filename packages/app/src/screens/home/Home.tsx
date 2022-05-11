@@ -7,7 +7,8 @@ import {RowMedium} from '@pengepantry/core/lib/components/layout/Spacer';
 import {RecipePopular} from '@pengepantry/core/lib/components/recipe-popular/RecipePopular';
 import {RecipeButton} from '@pengepantry/core/lib/components/recipe-button/RecipeButton';
 import {NavigationProp} from '@react-navigation/native';
-import {HomeRoute, HomeStackParamList} from 'navigation/home/types';
+import {MenuRoute, HomeStackParamList} from 'navigation/home/types';
+import {Heading} from '@pengepantry/core/lib/components/heading/Heading';
 
 const uris = [
   'https://upserve.com/media/sites/2/bigstock-Staff-showing-a-sample-of-chee-189121246-1100x600.jpg',
@@ -18,10 +19,10 @@ export const Home: React.FC<{navigation: NavigationProp<HomeStackParamList>}> =
   props => {
     return (
       <Screen>
-        <AppText variant="h1">Welcome, Wisteria 👋</AppText>
-        <AppText variant="p2">
-          Locally source recipe boxes from your favourite shops
-        </AppText>
+        <Heading
+          title="Welcome, Wisteria 👋"
+          subTitle="Locally source recipe boxes from your favourite shops"
+        />
         <ColMedium />
         <AppText variant="h2">Popular</AppText>
         <ColMedium />
@@ -40,7 +41,7 @@ export const Home: React.FC<{navigation: NavigationProp<HomeStackParamList>}> =
         <AppText variant="h3">Welcome, Wisteria 👋</AppText>
         <ColMedium />
         <RecipeButton
-          onPress={() => props.navigation.navigate(HomeRoute.MenuSelection)}
+          onPress={() => props.navigation.navigate(MenuRoute.MenuSelection)}
         />
       </Screen>
     );

@@ -28,7 +28,7 @@ export const getDefaultScreenOptions = (params: {title?: string}) => {
     title,
     headerShadowVisible: false, // applied here
     headerStyle: {
-      backgroundColor: appTheme.secondary.inverse,
+      backgroundColor: appTheme.background.primary.color,
     },
   };
 };

@@ -2,7 +2,6 @@ import React, {Fragment, useEffect} from 'react';
 import {ActivityIndicator, ScrollView} from 'react-native';
 import {useDispatch} from 'react-redux';
 import styled from '@emotion/native';
-import {Spacer} from '@pengepantry/core/lib/components/layout/Spacer';
 import {
   useAppStore,
   useRecipesList,
@@ -13,6 +12,10 @@ import {SearchBar} from '@pengepantry/core/lib/components/search-bar/SearchBar';
 import {AppView} from '@pengepantry/core/lib/components/layout/AppView';
 import {ListItemRedux} from 'components/ListItem.redux';
 import {OrderSummaryRedux} from 'components/OrderSummary.redux';
+import {
+  ColLarge,
+  ColMedium,
+} from '@pengepantry/core/lib/components/layout/Spacer';
 
 export const MenuSelection = () => {
   const recipes = useRecipesList();
@@ -42,14 +45,14 @@ export const MenuSelection = () => {
 
   return (
     <Screen>
-      <Spacer size={16} />
+      <ColMedium />
       <SearchBar />
-      <Spacer size={28} />
+      <ColLarge />
       <ScrollView>
         {recipes.map(recipe => (
           <Fragment key={recipe.id}>
             <ListItemRedux item={recipe} />
-            <Spacer size={28} />
+            <ColLarge />
           </Fragment>
         ))}
       </ScrollView>

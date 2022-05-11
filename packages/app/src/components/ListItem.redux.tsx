@@ -8,15 +8,18 @@ import {
 import {useRecipeSelections} from '@pengepantry/core/lib/store/selectors/recipeSelectors';
 import {selectionsSlice} from '@pengepantry/core/lib/store/recipeStore';
 import {Item} from '@pengepantry/core/lib/components/list-item/ListItem';
+import {useNavigation} from '@react-navigation/native';
+import {MenuRoute} from 'navigation/home/types';
 
-export const ListItemRedux: React.FC<Omit<ListItemProps, 'onPress'>> =
+export const ListItemRedux: React.FC<Omit<ListItemProps, 'onAdd' | 'onPress'>> =
   props => {
-    const selectedRecipeIds = useRecipeSelections();
+    const {navigate} = useNavigation();
     const dispatch = useDispatch();
+    const selectedRecipeIds = useRecipeSelections();
 
     const animated = useRef(new Animated.Value(1)).current;
 
-    const onPress = (item: Item) => {
+    const onAdd = (item: Item) => {
       const isSelected = selectedRecipeIds.includes(item.id);
       Animated.timing(animated, {
         toValue: isSelected ? 1 : 0,
@@ -34,5 +37,12 @@ export const ListItemRedux: React.FC<Omit<ListItemProps, 'onPress'>> =
       ],
     };
 
-    return <ListItem item={props.item} onPress={onPress} imageStyle={style} />;
+    return (
+      <ListItem
+        item={props.item}
+        onAdd={onAdd}
+        imageStyle={style}
+        onPress={() => navigate(MenuRoute.RecipeDetail)}
+      />
+    );
   };

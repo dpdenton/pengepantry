@@ -1,11 +1,13 @@
-export enum HomeRoute {
-  MenuMain = 'MENU_MAIN',
+export enum MenuRoute {
+  MenuHome = 'MENU_HOME',
   MenuSelection = 'MENU_SELECTION',
-  MenuReview = 'MEN_REVIEW',
+  MenuReview = 'MENU_REVIEW',
+  RecipeDetail = 'RECIPE_DETAIL',
 }
 
 export type HomeStackParamList = {
-  [HomeRoute.MenuMain]: undefined;
-  [HomeRoute.MenuSelection]: undefined;
-  [HomeRoute.MenuReview]: undefined;
+  [MenuRoute.MenuHome]: undefined;
+  [MenuRoute.MenuSelection]: undefined;
+  [MenuRoute.MenuReview]: undefined;
+  [MenuRoute.RecipeDetail]: undefined;
 };

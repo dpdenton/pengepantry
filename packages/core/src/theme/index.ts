@@ -1,24 +1,38 @@
-import {colors} from './colors';
+import {neutral} from 'theme/colors';
 
 export const appTheme = {
   primary: {
-    color: colors.N900,
-    inverse: colors.N00,
+    color: neutral.N900,
+    inverse: neutral.N00,
   },
   secondary: {
-    color: colors.N900,
-    inverse: colors.N30,
+    color: neutral.N900,
+    inverse: neutral.N20,
+  },
+  tertiary: {
+    color: '#F5A91C',
+  },
+  colors: {
+    neutral: {
+      lighter: neutral.N10,
+      light: neutral.N20,
+    },
   },
   text: {
     primary: {
       color: 'black',
-      inverse: colors.N00,
+      inverse: neutral.N00,
     },
   },
   action: {
     primary: {
       color: '#ec313c',
-      inverse: colors.N00,
+      inverse: neutral.N00,
+    },
+  },
+  background: {
+    primary: {
+      color: neutral.N10,
     },
   },
   spacing: {

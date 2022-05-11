@@ -13,7 +13,7 @@ const App = () => {
       <ThemeProvider theme={appTheme}>
         <Provider store={reduxStore}>
           <StatusBar
-            backgroundColor={appTheme.primary.inverse}
+            backgroundColor={appTheme.background.primary.color}
             barStyle="dark-content"
           />
           <Navigation />

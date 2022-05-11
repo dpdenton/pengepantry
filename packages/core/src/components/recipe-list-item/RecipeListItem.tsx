@@ -1,5 +1,5 @@
 import React from 'react';
-import {Animated} from 'react-native';
+import {Animated, TouchableOpacity} from 'react-native';
 import styled from '@emotion/native';
 import {Button} from 'components/button/Button';
 import {AppView} from 'components/layout/AppView';
@@ -13,30 +13,34 @@ export interface Item {
 }
 export interface ListItemProps {
   item: Item;
-  onPress: (item: Item) => void;
+  onAdd: (item: Item) => void;
+  onPress: () => void;
   imageStyle?: Animated.Animated;
 }
-export const ListItem: React.FC<ListItemProps> = ({
+export const RecipeListItem: React.FC<ListItemProps> = ({
   item,
+  onAdd,
   onPress,
   imageStyle,
 }) => {
   return (
-    <ListItemView>
-      <ListItemImage source={{uri: item.url}} style={imageStyle} />
-      <ListItemDescriptionView>
-        <CenteredRow style={{justifyContent: 'space-between'}}>
-          <Icon name="burgerMenu" />
-          <AppView>
-            <AppText variant="p2" weight="bold">
-              Crazy house party
-            </AppText>
-            <AppText variant="p2">12 July 2021 - 09:00 pm</AppText>
-          </AppView>
-          <Button label={'ADD'} onPress={() => onPress(item)} />
-        </CenteredRow>
-      </ListItemDescriptionView>
-    </ListItemView>
+    <TouchableOpacity onPress={onPress}>
+      <ListItemView>
+        <ListItemImage source={{uri: item.url}} style={imageStyle} />
+        <ListItemDescriptionView>
+          <CenteredRow style={{justifyContent: 'space-between'}}>
+            <Icon name="burgerMenu" />
+            <AppView>
+              <AppText variant="p2" weight="bold">
+                Crazy house party
+              </AppText>
+              <AppText variant="p2">12 July 2021 - 09:00 pm</AppText>
+            </AppView>
+            <Button label={'ADD'} onPress={() => onAdd(item)} />
+          </CenteredRow>
+        </ListItemDescriptionView>
+      </ListItemView>
+    </TouchableOpacity>
   );
 };
 

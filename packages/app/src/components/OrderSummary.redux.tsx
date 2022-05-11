@@ -3,7 +3,7 @@ import {OrderSummary} from '@pengepantry/core/lib/components/order-summary/Order
 import {useRecipeSelections} from '@pengepantry/core/lib/store/selectors/recipeSelectors';
 import {RecipeSelectionRedux} from 'components/RecipeSelection.redux';
 import {useNavigation} from '@react-navigation/native';
-import {HomeRoute} from 'navigation/home/types';
+import {MenuRoute} from 'navigation/home/types';
 import {RowMedium} from '@pengepantry/core/lib/components/layout/Spacer';
 
 export const OrderSummaryRedux = () => {
@@ -11,7 +11,7 @@ export const OrderSummaryRedux = () => {
   const [idOne, idTwo, idThree] = useRecipeSelections();
 
   return (
-    <OrderSummary onNext={() => navigate(HomeRoute.MenuReview)}>
+    <OrderSummary onNext={() => navigate(MenuRoute.MenuReview)}>
       <RecipeSelectionRedux recipeSelectionId={idOne} />
       <RowMedium />
       <RecipeSelectionRedux recipeSelectionId={idTwo} />
