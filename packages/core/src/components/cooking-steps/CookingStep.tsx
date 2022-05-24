@@ -10,19 +10,24 @@ import {ColMedium, RowMedium} from 'components/layout/Spacer';
 export interface CookingStepProps {
   label: string;
   descriptions: string[];
+  isFirst?: boolean;
+  isLast?: boolean;
 }
 
 export const CookingStep: React.FC<CookingStepProps> = ({
   label,
   descriptions,
+  isFirst,
+  isLast,
 }) => {
   const {tertiary} = useAppTheme();
   return (
     <AppView>
       <CenteredRow>
         <TimelineContainer>
+          {!isFirst && <Timeline />}
           <TimelineDot size={12} color={tertiary.color} />
-          <Timeline />
+          {!isLast && <Timeline />}
         </TimelineContainer>
         <RowMedium />
         <AppText variant="h3" style={{marginTop: -5}}>
@@ -30,9 +35,7 @@ export const CookingStep: React.FC<CookingStepProps> = ({
         </AppText>
       </CenteredRow>
       <Row>
-        <TimelineContainer>
-          <Timeline />
-        </TimelineContainer>
+        <TimelineContainer>{!isLast && <Timeline />}</TimelineContainer>
         <RowMedium />
         {descriptions.map(description => (
           <>
@@ -41,12 +44,14 @@ export const CookingStep: React.FC<CookingStepProps> = ({
           </>
         ))}
       </Row>
-      <Row>
-        <TimelineContainer>
-          <Timeline />
-        </TimelineContainer>
-        <ColMedium />
-      </Row>
+      {!isLast && (
+        <Row>
+          <TimelineContainer>
+            <Timeline />
+          </TimelineContainer>
+          <ColMedium />
+        </Row>
+      )}
     </AppView>
   );
 };
@@ -54,6 +59,8 @@ export const CookingStep: React.FC<CookingStepProps> = ({
 const Timeline = styled(AppView)`
   width: 2px;
   flex-grow: 1;
+  border-width: 1px;
+  border-color: ${({theme}) => theme.tertiary.color};
   background-color: ${({theme}) => theme.tertiary.color};
 `;
 

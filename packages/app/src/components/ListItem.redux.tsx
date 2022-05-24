@@ -16,7 +16,6 @@ export const ListItemRedux: React.FC<Omit<ListItemProps, 'onAdd' | 'onPress'>> =
     const {navigate} = useNavigation();
     const dispatch = useDispatch();
     const selectedRecipeIds = useRecipeSelections();
-
     const animated = useRef(new Animated.Value(1)).current;
 
     const onAdd = (item: Item) => {

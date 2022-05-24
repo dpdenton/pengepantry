@@ -14,8 +14,9 @@ export const appTheme = {
   },
   colors: {
     neutral: {
-      lighter: neutral.N10,
-      light: neutral.N20,
+      lightest: neutral.N10,
+      lighter: neutral.N20,
+      light: neutral.N30,
     },
   },
   text: {
