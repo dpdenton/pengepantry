@@ -5,13 +5,13 @@ import {CenteredRow} from 'components/layout/Row';
 import {useAppTheme} from 'theme/hooks';
 import {AppText} from 'components/app-text/AppText';
 
-export const UnorderedLisItem = () => {
+export const UnorderedListItem: React.FC = ({children}) => {
   const appTheme = useAppTheme();
   return (
     <CenteredRow>
-      <Dot size={16} color={appTheme.tertiary.color} />
+      <Dot size={6} color={appTheme.tertiary.color} />
       <RowMedium />
-      <AppText>List item</AppText>
+      <AppText>{children}</AppText>
     </CenteredRow>
   );
 };

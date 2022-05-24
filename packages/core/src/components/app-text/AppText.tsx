@@ -3,13 +3,12 @@ import styled from '@emotion/native';
 import {TextProps} from 'react-native';
 import {fonts, fontSizes} from 'theme/fonts';
 import {appTheme} from 'theme';
-
-export type FontWeight = 'bold' | 'regular';
+import {FontFamily} from 'theme/types';
 
 interface Props extends TextProps {
   color?: string;
   inverse?: boolean;
-  weight?: FontWeight;
+  fontFamily?: FontFamily;
   variant?: TextVariant;
 }
 
@@ -18,47 +17,47 @@ export type TextVariant = 'p3' | 'p2' | 'p1' | 'h3' | 'h2' | 'h1';
 const variantMap: {
   [key in TextVariant]: {
     size: number;
-    weight: FontWeight;
+    fontFamily: keyof typeof fonts;
   };
 } = {
   p3: {
     size: fontSizes.m,
-    weight: 'regular',
+    fontFamily: 'PRIMARY_REGULAR',
   },
   p2: {
     size: fontSizes.m,
-    weight: 'regular',
+    fontFamily: 'PRIMARY_REGULAR',
   },
   p1: {
     size: fontSizes.m,
-    weight: 'regular',
+    fontFamily: 'PRIMARY_REGULAR',
   },
   h3: {
-    size: fontSizes.m,
-    weight: 'regular',
+    size: fontSizes.l,
+    fontFamily: 'PRIMARY_MEDIUM',
   },
   h2: {
-    size: fontSizes.m,
-    weight: 'regular',
+    size: fontSizes.xl,
+    fontFamily: 'PRIMARY_MEDIUM',
   },
   h1: {
     size: fontSizes.xxl,
-    weight: 'regular',
+    fontFamily: 'PRIMARY_MEDIUM',
   },
 };
 
 export const AppText: React.FC<Props> = ({
   variant = 'p1',
-  weight: weightOverride,
+  fontFamily: fontFamilyOverride,
   color,
   inverse,
   children,
   ...textProps
 }) => {
-  const {size, weight} = variantMap[variant];
+  const {size, fontFamily} = variantMap[variant];
   return (
     <TextStyle
-      weight={weightOverride ?? weight}
+      fontFamily={fontFamilyOverride ?? fontFamily}
       size={size}
       color={
         color ?? inverse
@@ -72,21 +71,16 @@ export const AppText: React.FC<Props> = ({
   );
 };
 
-const weightMap: {[key in FontWeight]: string} = {
-  regular: fonts.PRIMARY_REGULAR,
-  bold: fonts.PRIMARY_BOLD,
-};
-
 interface TextStyleProps {
   color: string;
   size: number;
-  weight: FontWeight;
+  fontFamily: FontFamily;
 }
 
 const TextStyle = styled.Text<TextStyleProps>`
   color: ${({color}) => color};
   font-size: ${({size}) => `${size}px`};
-  font-family: ${({weight}) => weightMap[weight]};
+  font-family: ${({fontFamily}) => fonts[fontFamily]};
   letter-spacing: 1.5px;
   border-width: 1px;
   border-color: black;
