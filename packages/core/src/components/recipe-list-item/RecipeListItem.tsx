@@ -31,9 +31,7 @@ export const RecipeListItem: React.FC<RecipeListItemProps> = ({
           <CenteredRow style={{justifyContent: 'space-between'}}>
             <Icon name="burgerMenu" />
             <AppView>
-              <AppText variant="p2" weight="bold">
-                Crazy house party
-              </AppText>
+              <AppText variant="p2">Crazy house party</AppText>
               <AppText variant="p2">12 July 2021 - 09:00 pm</AppText>
             </AppView>
             <Button label={'ADD'} onPress={() => onAdd(item)} />

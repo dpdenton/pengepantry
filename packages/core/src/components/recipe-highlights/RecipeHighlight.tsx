@@ -19,7 +19,7 @@ export const RecipeHighlight: React.FC<Props> = ({
   return (
     <CenteredRow>
       <Highlight>
-        <AppText weight="bold">{highlight}</AppText>
+        <AppText>{highlight}</AppText>
       </Highlight>
       <RowSmall />
       <AppView>

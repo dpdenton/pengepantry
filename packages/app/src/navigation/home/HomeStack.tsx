@@ -6,6 +6,8 @@ import {MenuSelection} from 'screens/home/MenuSelection';
 import {getDefaultScreenOptions} from 'navigation/RootStack';
 import {RecipeDetailScreen} from 'screens/home/RecipeDetail';
 import {MenuReview} from 'screens/home/MenuReview';
+import {useNavigation} from '@react-navigation/native';
+import {NavigationProp} from '@react-navigation/core/lib/typescript/src/types';
 
 const Stack = createNativeStackNavigator<HomeStackParamList>();
 
@@ -33,3 +35,6 @@ export const HomeStack = () => (
     />
   </Stack.Navigator>
 );
+
+export const useHomeNavigation = () =>
+  useNavigation<NavigationProp<HomeStackParamList>>();

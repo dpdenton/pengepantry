@@ -25,9 +25,7 @@ export const Button: React.FC<Props> = ({
 }) => {
   return (
     <ButtonView background={backgroundColorMap[type]} {...props}>
-      <AppText color={colorMap[type]} weight="bold">
-        {label}
-      </AppText>
+      <AppText color={colorMap[type]}>{label}</AppText>
     </ButtonView>
   );
 };

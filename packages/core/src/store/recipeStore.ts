@@ -80,7 +80,7 @@ type RecipeOrderReducers = {
   toggleRecipeSelection: (
     state: RecipeOrderStore,
     payload: PayloadAction<string>,
-  ) => void;
+  ) => any;
 };
 
 export const selectionsSlice = createSlice<

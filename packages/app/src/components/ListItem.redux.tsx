@@ -3,19 +3,18 @@ import {Animated} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {useRecipeSelections} from '@pengepantry/core/lib/store/selectors/recipeSelectors';
 import {selectionsSlice} from '@pengepantry/core/lib/store/recipeStore';
-import {useNavigation} from '@react-navigation/native';
-import {HomeStackParamList, MenuRoute} from 'navigation/home/types';
+import {MenuRoute} from 'navigation/home/types';
 import {
   RecipeListItem,
   RecipeListItemProps,
 } from '@pengepantry/core/lib/components/recipe-list-item/RecipeListItem';
 import {Item} from '@pengepantry/core/lib/components/recipe-list-item/RecipeListItem';
-import {NavigationProp} from '@react-navigation/core/lib/typescript/src/types';
+import {useHomeNavigation} from 'navigation/home/HomeStack';
 
 export const ListItemRedux: React.FC<
   Omit<RecipeListItemProps, 'onAdd' | 'onPress'>
 > = props => {
-  const {navigate} = useNavigation<NavigationProp<HomeStackParamList>>();
+  const {navigate} = useHomeNavigation();
   const dispatch = useDispatch();
   const selectedRecipeIds = useRecipeSelections();
   const animated = useRef(new Animated.Value(1)).current;
