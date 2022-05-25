@@ -2,8 +2,8 @@ import React, {useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
 import {Maybe} from '@pengepantry/core/lib/utils/types';
 import {Recipe} from '@pengepantry/core/lib/entities/Recipe';
-import {useRecipeStore} from '@pengepantry/core/lib/store/selectors/recipeSelectors';
 import {RecipeSelection} from '@pengepantry/core/lib/components/order-summary/RecipeSelection';
+import {useRecipeStore} from '@pengepantry/core/lib/store/store-selectors';
 
 interface Props {
   recipeSelectionId: Maybe<string>;

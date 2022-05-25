@@ -1,8 +1,6 @@
 import React, {useRef} from 'react';
 import {Animated} from 'react-native';
 import {useDispatch} from 'react-redux';
-import {useRecipeSelections} from '@pengepantry/core/lib/store/selectors/recipeSelectors';
-import {selectionsSlice} from '@pengepantry/core/lib/store/recipeStore';
 import {MenuRoute} from 'navigation/home/types';
 import {
   RecipeListItem,
@@ -10,6 +8,8 @@ import {
 } from '@pengepantry/core/lib/components/recipe-list-item/RecipeListItem';
 import {Item} from '@pengepantry/core/lib/components/recipe-list-item/RecipeListItem';
 import {useHomeNavigation} from 'navigation/home/HomeStack';
+import {useRecipeSelections} from '@pengepantry/core/lib/store/store-selectors';
+import {orderSlice} from '@pengepantry/core/lib/store/slices/order/order-slice';
 
 export const ListItemRedux: React.FC<
   Omit<RecipeListItemProps, 'onAdd' | 'onPress'>
@@ -25,7 +25,7 @@ export const ListItemRedux: React.FC<
       toValue: isSelected ? 1 : 0,
       useNativeDriver: true,
     }).start();
-    dispatch(selectionsSlice.actions.toggleRecipeSelection(item.id));
+    dispatch(orderSlice.actions.toggleRecipeSelection(item.id));
   };
 
   const style: Animated.Animated = {

@@ -14,8 +14,13 @@ import {CenteredRow} from '@pengepantry/core/lib/components/layout/Row';
 import {Button} from '@pengepantry/core/lib/components/button/Button';
 import styled from '@emotion/native';
 import {Divider} from '@pengepantry/core/lib/components/divider/Divider';
+import {useTogglePantryItem} from '@pengepantry/core/lib/store/slices/order/order-actions';
+import {useOrderSlice} from '@pengepantry/core/lib/store/slices/order/order-selectors';
 
 export const MenuReview = () => {
+  const {pantryItemIds} = useOrderSlice();
+  const togglePantryItem = useTogglePantryItem();
+  console.log({pantryItemIds, togglePantryItem});
   return (
     <Screen>
       <Heading
@@ -39,7 +44,6 @@ export const MenuReview = () => {
         <AppText variant="h3">A recipe with a difference</AppText>
       </VerticalListItem>
       <ColMedium />
-
       <Heading title="Pantry items" subTitle="Select items that last a while" />
       <ColMedium />
       <VerticalListItem imageUri="https://images.everydayhealth.com/images/olive-oil-lowers-alzheimers-death-risk-1440x810.jpg">
@@ -49,13 +53,12 @@ export const MenuReview = () => {
             <ColXSmall />
             <AppText>£1.99</AppText>
           </AppView>
-          <Button label="ADD" />
+          <Button label="ADD" onPress={() => togglePantryItem('1')} />
         </ListItemContent>
       </VerticalListItem>
       <ColMedium />
       <Heading title="Order summary" />
       <ColMedium />
-
       <CenteredRow style={{justifyContent: 'space-between'}}>
         <AppText variant="p1">Recipes (3)</AppText>
         <AppText variant="p1">£29.99</AppText>

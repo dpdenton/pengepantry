@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux';
-import {GlobalReduxStore} from 'store/recipeStore';
+import {GlobalReduxStore} from 'store/store';
 import {Recipe} from 'entities/Recipe';
 
 export const useAppStore = <TSelection = unknown>(
@@ -7,20 +7,20 @@ export const useAppStore = <TSelection = unknown>(
 ) => useSelector(selector);
 
 export const useRecipeSelections = () => {
-  return useAppStore(({selections}) => selections.selectedRecipeIds);
+  return useAppStore(({order}) => order.recipeIds);
 };
 
 export const useRecipeStore = () => {
-  return useAppStore(({recipeStore}) => recipeStore)
-}
+  return useAppStore(({recipeData}) => recipeData);
+};
 
 export const useRecipesList = (): Recipe[] => {
   return useAppStore<Recipe[]>(state =>
-    Array.from(state.recipeStore.byId.values()),
+    Array.from(state.recipeData.byId.values()),
   );
 };
 
 export const recipeSelector =
   (recipeId: string | undefined) => (state: GlobalReduxStore) => {
-    return recipeId && state.recipeStore.byId.get(recipeId);
+    return recipeId && state.recipeData.byId.get(recipeId);
   };

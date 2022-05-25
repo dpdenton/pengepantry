@@ -1,8 +1,8 @@
 import React, {useCallback} from 'react';
 import {RecipeDetail} from '@pengepantry/core/lib/components/recipe-detail/RecipeDetail';
-import {selectionsSlice} from '@pengepantry/core/lib/store/recipeStore';
 import {useDispatch} from 'react-redux';
-import {useRecipeSelections} from '@pengepantry/core/lib/store/selectors/recipeSelectors';
+import {useRecipeSelections} from '@pengepantry/core/lib/store/store-selectors';
+import {orderSlice} from '@pengepantry/core/lib/store/slices/order/order-slice';
 
 interface Props {
   recipeId: string;
@@ -11,7 +11,7 @@ export const RecipeDetailRedux: React.FC<Props> = ({recipeId}) => {
   const dispatch = useDispatch();
   const selectedRecipeIds = useRecipeSelections();
   const addRecipe = useCallback(() => {
-    dispatch(selectionsSlice.actions.toggleRecipeSelection(recipeId));
+    dispatch(orderSlice.actions.toggleRecipeSelection(recipeId));
   }, [recipeId]);
   return (
     <RecipeDetail
