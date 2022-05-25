@@ -11,13 +11,13 @@ export interface Item {
   id: string;
   url: string;
 }
-export interface ListItemProps {
+export interface RecipeListItemProps {
   item: Item;
   onAdd: (item: Item) => void;
   onPress: () => void;
   imageStyle?: Animated.Animated;
 }
-export const RecipeListItem: React.FC<ListItemProps> = ({
+export const RecipeListItem: React.FC<RecipeListItemProps> = ({
   item,
   onAdd,
   onPress,

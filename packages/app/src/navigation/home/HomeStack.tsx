@@ -4,8 +4,8 @@ import {MenuRoute, HomeStackParamList} from 'navigation/home/types';
 import {Home} from 'screens/home/Home';
 import {MenuSelection} from 'screens/home/MenuSelection';
 import {getDefaultScreenOptions} from 'navigation/RootStack';
-import {MenuReview} from 'screens/home/MenuReview';
 import {RecipeDetailScreen} from 'screens/home/RecipeDetail';
+import {MenuReview} from 'screens/home/MenuReview';
 
 const Stack = createNativeStackNavigator<HomeStackParamList>();
 

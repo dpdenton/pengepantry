@@ -1,6 +1,9 @@
 import {AppView} from 'components/layout/AppView';
 import styled from '@emotion/native';
 
+export const ColXSmall = styled(AppView)`
+  height: ${props => props.theme.spacing.xs.toString()}px;
+`;
 export const ColSmall = styled(AppView)`
   height: ${props => props.theme.spacing.s.toString()}px;
 `;
