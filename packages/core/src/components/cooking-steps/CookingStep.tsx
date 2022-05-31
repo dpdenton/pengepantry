@@ -1,5 +1,5 @@
-import {AppView} from 'components/layout/AppView';
 import React from 'react';
+import {AppView} from 'components/layout/AppView';
 import {CenteredRow, Row} from 'components/layout/Row';
 import styled from '@emotion/native';
 import {Dot} from 'components/dot/Dot';

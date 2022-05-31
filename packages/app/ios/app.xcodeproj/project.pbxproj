@@ -18,6 +18,8 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		DB095A36C9FE4A52BC7BECAC /* CamphorProRegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 923737609EB1454FB8A1FCE8 /* CamphorProRegularItalic.otf */; };
 		F8A075FBC23C4F398F4469FF /* CamphorProRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C64B8CD4C47740A4A1BDD10E /* CamphorProRegular.otf */; };
+		1A8D0A5C10A04BFE8A977AC9 /* PoppinsRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E51246013A4646DCAB9E9895 /* PoppinsRegular.ttf */; };
+		432CE080D46D406C93870269 /* PoppinsRegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9A6436CCBAB4A228A36B26A /* PoppinsRegularItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		C64B8CD4C47740A4A1BDD10E /* CamphorProRegular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = CamphorProRegular.otf; path = ../assets/fonts/CamphorProRegular.otf; sourceTree = "<group>"; };
 		DE07BE51FD4647248411ABD4 /* CamphorProMedium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = CamphorProMedium.otf; path = ../assets/fonts/CamphorProMedium.otf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		E51246013A4646DCAB9E9895 /* PoppinsRegular.ttf */ = {isa = PBXFileReference; name = "PoppinsRegular.ttf"; path = "../assets/fonts/PoppinsRegular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F9A6436CCBAB4A228A36B26A /* PoppinsRegularItalic.ttf */ = {isa = PBXFileReference; name = "PoppinsRegularItalic.ttf"; path = "../assets/fonts/PoppinsRegularItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 				DE07BE51FD4647248411ABD4 /* CamphorProMedium.otf */,
 				C64B8CD4C47740A4A1BDD10E /* CamphorProRegular.otf */,
 				923737609EB1454FB8A1FCE8 /* CamphorProRegularItalic.otf */,
+				E51246013A4646DCAB9E9895 /* PoppinsRegular.ttf */,
+				F9A6436CCBAB4A228A36B26A /* PoppinsRegularItalic.ttf */,
 			);
 			name = Resources;
 			path = "";
@@ -269,6 +275,8 @@
 				636C07B400F04FCEB0F3EB49 /* CamphorProMedium.otf in Resources */,
 				F8A075FBC23C4F398F4469FF /* CamphorProRegular.otf in Resources */,
 				DB095A36C9FE4A52BC7BECAC /* CamphorProRegularItalic.otf in Resources */,
+				1A8D0A5C10A04BFE8A977AC9 /* PoppinsRegular.ttf in Resources */,
+				432CE080D46D406C93870269 /* PoppinsRegularItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

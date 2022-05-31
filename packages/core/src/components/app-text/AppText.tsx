@@ -1,68 +1,105 @@
 import React from 'react';
 import styled from '@emotion/native';
 import {TextProps} from 'react-native';
-import {fonts, fontSizes} from 'theme/fonts';
+import {
+  FontFamily,
+  FontSizes,
+  fontSizes,
+  FontStyle,
+  FontWeight,
+  getFontName,
+} from 'theme/fonts';
 import {appTheme} from 'theme';
-import {FontFamily} from 'theme/types';
 
 interface Props extends TextProps {
+  /**
+   * Use this in most cases to set the properties of the font (weight, style, size etc). Defaults to 'p1'
+   *
+   * If you need more fine-grained control over the styling the set the 'override properties' below
+   */
+  variant?: TextVariant;
+
   color?: string;
   inverse?: boolean;
-  fontFamily?: FontFamily;
-  variant?: TextVariant;
+
+  /**
+   * Override properties: if set will override the variant properties
+   */
+  family?: FontFamily;
+  weight?: FontWeight;
+  size?: FontSizes;
+  fontStyle?: FontStyle;
 }
 
 export type TextVariant = 'p3' | 'p2' | 'p1' | 'h3' | 'h2' | 'h1';
 
 const variantMap: {
   [key in TextVariant]: {
-    size: number;
-    fontFamily: keyof typeof fonts;
+    color: string;
+    size: FontSizes;
+    fontFamily: FontFamily;
+    weight: FontWeight;
   };
 } = {
   p3: {
     size: fontSizes.m,
-    fontFamily: 'PRIMARY_REGULAR',
+    fontFamily: 'Poppins',
+    weight: 400,
+    color: appTheme.text.primary.color,
   },
   p2: {
     size: fontSizes.m,
-    fontFamily: 'PRIMARY_REGULAR',
+    fontFamily: 'Poppins',
+    weight: 400,
+    color: appTheme.text.primary.color,
   },
   p1: {
     size: fontSizes.m,
-    fontFamily: 'PRIMARY_REGULAR',
+    fontFamily: 'Poppins',
+    weight: 400,
+    color: appTheme.text.primary.color,
   },
   h3: {
     size: fontSizes.l,
-    fontFamily: 'PRIMARY_MEDIUM',
+    fontFamily: 'Poppins',
+    weight: 400,
+    color: appTheme.text.primary.color,
   },
   h2: {
     size: fontSizes.xl,
-    fontFamily: 'PRIMARY_MEDIUM',
+    fontFamily: 'Poppins',
+    weight: 400,
+    color: appTheme.text.primary.color,
   },
   h1: {
     size: fontSizes.xxl,
-    fontFamily: 'PRIMARY_MEDIUM',
+    fontFamily: 'Poppins',
+    weight: 400,
+    color: appTheme.text.primary.color,
   },
 };
 
 export const AppText: React.FC<Props> = ({
   variant = 'p1',
-  fontFamily: fontFamilyOverride,
+  fontStyle = 'normal',
+  size: sizeOverride,
+  weight: weightOverride,
+  family: fontFamilyOverride,
   color,
   inverse,
   children,
   ...textProps
 }) => {
-  const {size, fontFamily} = variantMap[variant];
+  const {size, fontFamily, weight} = variantMap[variant];
   return (
     <TextStyle
-      fontFamily={fontFamilyOverride ?? fontFamily}
-      size={size}
+      size={sizeOverride ?? size}
+      weight={weightOverride ?? weight}
+      family={fontFamilyOverride ?? fontFamily}
+      fontStyle={fontStyle}
       color={
-        color ?? inverse
-          ? appTheme.text.primary.inverse
-          : appTheme.text.primary.color
+        color ??
+        (inverse ? appTheme.text.primary.inverse : appTheme.text.primary.color)
       }
       {...textProps}
     >
@@ -73,15 +110,16 @@ export const AppText: React.FC<Props> = ({
 
 interface TextStyleProps {
   color: string;
-  size: number;
-  fontFamily: FontFamily;
+  size: FontSizes;
+  family: FontFamily;
+  weight: FontWeight;
+  fontStyle: FontStyle;
 }
 
 const TextStyle = styled.Text<TextStyleProps>`
   color: ${({color}) => color};
   font-size: ${({size}) => `${size}px`};
-  font-family: ${({fontFamily}) => fonts[fontFamily]};
-  letter-spacing: 1.5px;
-  border-width: 1px;
-  border-color: black;
+  font-family: ${({family, weight, fontStyle}) =>
+    getFontName({family, weight, style: fontStyle})};
+  font-weight: ${({weight}) => weight};
 `;

@@ -1,10 +1,9 @@
-import {Icon} from '@pengepantry/core/lib/icons/Icon';
+import {Heading} from '@pengepantry/core/lib/components/heading/Heading';
 
 const App = () => {
   return (
     <div>
-      <h1>It's nice to be back in webland!</h1>
-      <Icon name="burgerMenu" />
+      <Heading title="Welcome to Penge Pantry!" />
     </div>
   );
 };

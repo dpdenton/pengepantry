@@ -15,12 +15,9 @@ import {Button} from '@pengepantry/core/lib/components/button/Button';
 import styled from '@emotion/native';
 import {Divider} from '@pengepantry/core/lib/components/divider/Divider';
 import {useTogglePantryItem} from '@pengepantry/core/lib/store/slices/order/order-actions';
-import {useOrderSlice} from '@pengepantry/core/lib/store/slices/order/order-selectors';
 
 export const MenuReview = () => {
-  const {pantryItemIds} = useOrderSlice();
   const togglePantryItem = useTogglePantryItem();
-  console.log({pantryItemIds, togglePantryItem});
   return (
     <Screen>
       <Heading
@@ -81,8 +78,8 @@ export const MenuReview = () => {
       <Divider />
       <ColSmall />
       <CenteredRow style={{justifyContent: 'space-between'}}>
-        <AppText fontFamily="PRIMARY_BOLD">Total</AppText>
-        <AppText fontFamily="PRIMARY_BOLD">£34.89</AppText>
+        <AppText family="Poppins">Total</AppText>
+        <AppText family="Poppins">£34.89</AppText>
       </CenteredRow>
       <ColLarge />
       <ColLarge />
