@@ -1,11 +1,6 @@
-import {Heading} from '@pengepantry/core/lib/components/heading/Heading';
-
+import './App.css';
 const App = () => {
-  return (
-    <div>
-      <Heading title="Welcome to Penge Pantry!" />
-    </div>
-  );
+  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
 };
 
 export default App;
