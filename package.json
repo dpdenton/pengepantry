@@ -12,7 +12,10 @@
     "nohoist": []
   },
   "dependencies": {
-    "typescript": "4.4.4",
-    "react-native": "*"
+    "react-native": "*",
+    "typescript": "4.4.4"
+  },
+  "devDependencies": {
+    "eslint-plugin-import": "^2.26.0"
   }
 }
