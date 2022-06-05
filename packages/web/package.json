@@ -15,15 +15,11 @@
     "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
-    "extends": "react-app",
     "overrides": [
       {
         "files": [
           "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
+        ]
       }
     ]
   },
