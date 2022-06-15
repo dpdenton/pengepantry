@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/native';
-import {TextProps} from 'react-native';
+import {AccessibilityRole, TextProps} from 'react-native';
 import {
   FontFamily,
   FontSizes,
@@ -31,7 +31,7 @@ interface Props extends TextProps {
   fontStyle?: FontStyle;
 }
 
-export type TextVariant = 'p3' | 'p2' | 'p1' | 'h3' | 'h2' | 'h1';
+export type TextVariant = 'p3' | 'p2' | 'p1' | 'h3' | 'h2' | 'h1' | 'hero';
 
 const variantMap: {
   [key in TextVariant]: {
@@ -77,7 +77,15 @@ const variantMap: {
     weight: 400,
     color: appTheme.text.primary.color,
   },
+  hero: {
+    size: fontSizes.hero,
+    fontFamily: 'Poppins',
+    weight: 700,
+    color: appTheme.text.primary.color,
+  },
 };
+
+const headingVariants = ['h1', 'h2', 'h3', 'hero'];
 
 export const AppText: React.FC<Props> = ({
   variant = 'p1',
@@ -91,12 +99,17 @@ export const AppText: React.FC<Props> = ({
   ...textProps
 }) => {
   const {size, fontFamily, weight} = variantMap[variant];
+
+  const accessibilityRole = headingVariants.includes(variant)
+    ? ('heading' as AccessibilityRole)
+    : 'text';
   return (
     <TextStyle
       size={sizeOverride ?? size}
       weight={weightOverride ?? weight}
       family={fontFamilyOverride ?? fontFamily}
       fontStyle={fontStyle}
+      accessibilityRole={accessibilityRole}
       color={
         color ??
         (inverse ? appTheme.text.primary.inverse : appTheme.text.primary.color)
@@ -121,5 +134,5 @@ const TextStyle = styled.Text<TextStyleProps>`
   font-size: ${({size}) => `${size}px`};
   font-family: ${({family, weight, fontStyle}) =>
     getFontName({family, weight, style: fontStyle})};
-  font-weight: ${({weight}) => weight};
+  font-weight: ${({weight}) => String(weight)};
 `;
