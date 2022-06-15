@@ -3,7 +3,7 @@ import {Platform} from 'react-native';
 export type FontWeight = 100 | 400 | 700;
 export type FontStyle = 'normal' | 'italic';
 export type FontFamily = 'Poppins';
-export type FontSizes = 10 | 12 | 14 | 16 | 18 | 22;
+export type FontSizes = 10 | 12 | 14 | 16 | 18 | 22 | 60;
 
 const styleToName = {
   normal: '',
@@ -36,4 +36,5 @@ export const fontSizes: {[key: string]: FontSizes} = {
   l: 16,
   xl: 18,
   xxl: 22,
+  hero: 60,
 };
