@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "@pengepantry/core": "0.1.0",
-    "craco": "^0.0.3"
+    "craco": "^0.0.3",
+    "react-router-dom": "^6.3.0"
   },
   "scripts": {
     "start": "cross-env SKIP_PREFLIGHT_CHECK=true craco start",

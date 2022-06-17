@@ -1,15 +1,14 @@
 import React from 'react';
 import {Row} from '@pengepantry/core/lib/components/layout/Row';
 import {RowMedium} from '@pengepantry/core/lib/components/layout/Spacer';
+import {Link} from 'react-router-dom';
 
 export const NavBarLinks: React.FC = () => {
   return (
     <Row>
-      <a href="/">Link 1</a>
+      <Link to="/">Home</Link>
       <RowMedium />
-      <a href="/">Link 2</a>
-      <RowMedium />
-      <a href="/">Link 3</a>
+      <Link to="/menu">Menu</Link>
     </Row>
   );
 };
