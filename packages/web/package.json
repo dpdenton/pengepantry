@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "react-dom": "18.2.0",
     "@pengepantry/core": "0.1.0",
     "craco": "^0.0.3"
   },
@@ -43,5 +44,8 @@
     "postcss": "^8.4.14",
     "react-scripts": "5.0.1",
     "tailwindcss": "^3.0.24"
+  },
+  "peerDependencies": {
+    "react": "18.2.0"
   }
 }
