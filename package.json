@@ -12,7 +12,7 @@
     "nohoist": []
   },
   "dependencies": {
-    "react-native": "*",
+    "react": "18.2.0",
     "typescript": "4.4.4"
   },
   "devDependencies": {
