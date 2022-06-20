@@ -1,9 +1,12 @@
-import styled from '@emotion/native';
-import {AppTheme} from 'theme/types';
+import React from 'react';
+import {View, ViewProps} from 'react-native';
+import tw from 'twrnc';
+import {AppViewProps} from './AppView.types';
 
-export const AppView = styled.View<AppTheme>`
-  //border-color: red;
-  //border-width: 1px;
-`;
+type Props = Omit<ViewProps, 'style'> & AppViewProps;
 
-//border-color: ${props => props.theme.colors.debug ? 'red' : undefined};
+export const AppView: React.FC<Props> = ({className, children}) => {
+  return (
+    <View style={className ? tw`${className}` : undefined}>{children}</View>
+  );
+};
