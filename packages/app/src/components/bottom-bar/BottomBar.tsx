@@ -1,13 +1,9 @@
 import React from 'react';
-import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {TouchableOpacity} from 'react-native';
-import styled from '@emotion/native';
-import {CenteredRow} from '@pengepantry/core/lib/components/layout/Row';
-import {Icon} from '@pengepantry/core/lib/icons/Icon';
-import {IconName} from '@pengepantry/core/lib/icons/Icon';
+import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
+import {CenteredRow, Row} from '@pengepantry/core/lib/components/layout/Row';
+import {Icon, IconName} from '@pengepantry/core/lib/icons/Icon';
 import {AppText} from '@pengepantry/core/lib/components/app-text/AppText';
-import {CenteredColumn} from '@pengepantry/core/lib/components/layout/Column';
-import {useRoute} from '@react-navigation/native';
 
 const iconRouteMap: {[key: string]: IconName} = {
   Home: 'home',
@@ -20,9 +16,8 @@ export const BottomBar: React.FC<BottomTabBarProps> = ({
   descriptors,
   navigation,
 }) => {
-  return null;
   return (
-    <BottomBarRow>
+    <Row>
       {state.routes.map((route, index) => {
         const {options} = descriptors[route.key];
         const label = options.tabBarLabel ?? options.title ?? route.name;
@@ -51,26 +46,13 @@ export const BottomBar: React.FC<BottomTabBarProps> = ({
             onPress={onPress}
             style={{flex: 1}}
           >
-            <CenteredRow style={{justifyContent: 'center'}}>
-              <CenteredColumn>
-                <Icon name={iconRouteMap[route.name]} />
-                <AppText>{label}</AppText>
-              </CenteredColumn>
+            <CenteredRow>
+              <Icon name={iconRouteMap[route.name]} />
+              <AppText>{String(label)}</AppText>
             </CenteredRow>
           </TouchableOpacity>
         );
       })}
-    </BottomBarRow>
+    </Row>
   );
 };
-
-const BottomBarRow = styled(CenteredRow)`
-  background: white;
-  height: 60px;
-  shadow-color: #000;
-  shadow-offset: 0px 2px;
-  shadow-opacity: 0.12;
-  shadow-radius: 48px;
-  margin-bottom: 16px;
-  //box-shadow: 0px 2px 48px rgba(0, 0, 0, 0.12);
-`;

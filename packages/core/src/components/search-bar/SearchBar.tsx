@@ -1,23 +1,24 @@
 import React from 'react';
-import styled from '@emotion/native';
+import {TextInput} from 'react-native';
 import {AppView} from 'components/layout/AppView';
 
 export const SearchBar = () => {
   return (
     <AppView>
-      <SearchBarView placeholder="Search recipes..." />
+      <TextInput
+        placeholder="Search recipes..."
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          backgroundColor: 'white',
+          borderWidth: 1,
+          borderRadius: 10,
+          borderColor: '#eaebec',
+          color: '#c5c5c5',
+          letterSpacing: 1,
+          padding: 14,
+        }}
+      />
     </AppView>
   );
 };
-
-const SearchBarView = styled.TextInput`
-  display: flex;
-  flex-direction: row;
-  background: #ffffff;
-  border: 1px solid #eaebec;
-  border-radius: 10px;
-  font-size: 14px;
-  color: #c5c5c5;
-  letter-spacing: 1px;
-  padding: 14px 12px 14px 40px;
-`;

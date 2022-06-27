@@ -1,10 +1,9 @@
 import React from 'react';
 import {Image, ScrollView} from 'react-native';
-import styled from '@emotion/native';
 import {Row} from 'components/layout/Row';
 import {Heading} from 'components/heading/Heading';
 import {RecipeHighlights} from 'components/recipe-highlights/RecipeHighlights';
-import {ColLarge, ColMedium, RowMedium} from 'components/layout/Spacer';
+import {ColSpacer, RowSpacer} from 'components/layout/Spacer';
 import {AppText} from 'components/app-text/AppText';
 import {NamedEntity} from 'utils/types';
 import {UnorderedListItem} from 'components/list/UnorderedListItem';
@@ -33,25 +32,28 @@ export const RecipeDetail: React.FC<Props> = ({
   return (
     <>
       <ScrollView>
-        <ColLarge />
+        <ColSpacer />
         <Heading title={title} subTitle={subTitle} />
-        <ColLarge />
+        <ColSpacer />
         <Row>
           <RecipeHighlights />
-          <RowMedium />
-          <HeroImage source={{uri: heroImageUrl}} />
+          <RowSpacer />
+          <Image
+            source={{uri: heroImageUrl}}
+            style={{width: '100%', height: '100%'}}
+          />
         </Row>
-        <ColLarge />
+        <ColSpacer />
         <AppText variant="h2">Ingredients</AppText>
-        <ColLarge />
+        <ColSpacer />
         {ingredients.map(({name}, index) => (
           <AppView key={index}>
             <UnorderedListItem>{name}</UnorderedListItem>
-            <ColMedium />
+            <ColSpacer />
           </AppView>
         ))}
         <AppText variant="h2">Method</AppText>
-        <ColLarge />
+        <ColSpacer />
         {cookingSteps.map((cookingStep, index) => (
           <CookingStep
             key={index}
@@ -62,24 +64,9 @@ export const RecipeDetail: React.FC<Props> = ({
           />
         ))}
       </ScrollView>
-      <ButtonContainer>
-        <Button
-          label={isSelected ? 'REMOVE RECIPE' : 'ADD RECIPE'}
-          onPress={addRecipe}
-        />
-      </ButtonContainer>
+      <Button onPress={addRecipe}>
+        {isSelected ? 'REMOVE RECIPE' : 'ADD RECIPE'}
+      </Button>
     </>
   );
 };
-
-const ButtonContainer = styled(AppView)`
-  padding: ${({theme}) => theme.spacing.l.toString()}px;
-  border-top-width: 1px;
-  border-top-color: ${({theme}) => theme.colors.neutral.light};
-`;
-
-const HeroImage = styled(Image)`
-  height: 100%;
-  width: 100%;
-  border-radius: 10px;
-`;

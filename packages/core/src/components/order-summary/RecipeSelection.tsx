@@ -1,6 +1,5 @@
 import React from 'react';
 import {Animated} from 'react-native';
-import styled from '@emotion/native';
 import {Row} from 'components/layout/Row';
 
 interface Props {
@@ -10,8 +9,8 @@ interface Props {
 
 export const RecipeSelection: React.FC<Props> = ({uri, scale}) => {
   return (
-    <OrderItem>
-      <SelectionImageView
+    <Row className="w-1/4 justify-center rounded-1 border border-neutral-300">
+      <Animated.Image
         source={{uri}}
         style={{
           width: '100%',
@@ -20,17 +19,6 @@ export const RecipeSelection: React.FC<Props> = ({uri, scale}) => {
           transform: [{scale}],
         }}
       />
-    </OrderItem>
+    </Row>
   );
 };
-
-const OrderItem = styled(Row)`
-  width: 25%;
-  flex-grow: 1;
-  justify-content: center;
-  border-radius: 10px;
-  border-width: 1px;
-  border-color: gainsboro;
-`;
-
-const SelectionImageView = styled(Animated.Image)``;

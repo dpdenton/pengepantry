@@ -1,21 +1,17 @@
 import React, {Fragment, useEffect} from 'react';
 import {ActivityIndicator, ScrollView} from 'react-native';
 import {useDispatch} from 'react-redux';
-import styled from '@emotion/native';
 import {Screen} from '@pengepantry/core/lib/components/screen/Screen';
 import {SearchBar} from '@pengepantry/core/lib/components/search-bar/SearchBar';
 import {AppView} from '@pengepantry/core/lib/components/layout/AppView';
-import {ListItemRedux} from 'components/ListItem.redux';
-import {OrderSummaryRedux} from 'components/OrderSummary.redux';
-import {
-  ColLarge,
-  ColMedium,
-} from '@pengepantry/core/lib/components/layout/Spacer';
+import {ColSpacer} from '@pengepantry/core/lib/components/layout/Spacer';
 import {
   useAppStore,
   useRecipesList,
 } from '@pengepantry/core/lib/store/store-selectors';
 import {recipeDataSlice} from '@pengepantry/core/lib/store/slices/recipe-data-slice';
+import {ListItemRedux} from 'components/ListItem.redux';
+import {OrderSummaryRedux} from 'components/OrderSummary.redux';
 
 export const MenuSelection = () => {
   const recipes = useRecipesList();
@@ -32,12 +28,7 @@ export const MenuSelection = () => {
 
   if (product.loading) {
     return (
-      <AppView
-        style={{
-          height: '100%',
-          justifyContent: 'center',
-        }}
-      >
+      <AppView>
         <ActivityIndicator />
       </AppView>
     );
@@ -45,27 +36,20 @@ export const MenuSelection = () => {
 
   return (
     <Screen>
-      <ColMedium />
+      <ColSpacer />
       <SearchBar />
-      <ColLarge />
+      <ColSpacer size="l" />
       <ScrollView>
         {recipes.map(recipe => (
           <Fragment key={recipe.id}>
             <ListItemRedux item={recipe} />
-            <ColLarge />
+            <ColSpacer size="l" />
           </Fragment>
         ))}
       </ScrollView>
-      <OrderSummaryContainer>
+      <AppView className="absolute left-0 right-0 bottom-20">
         <OrderSummaryRedux />
-      </OrderSummaryContainer>
+      </AppView>
     </Screen>
   );
 };
-
-const OrderSummaryContainer = styled(AppView)`
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-`;

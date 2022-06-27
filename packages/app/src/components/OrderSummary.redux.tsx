@@ -1,9 +1,9 @@
 import React from 'react';
-import {OrderSummary} from '@pengepantry/core/lib/components/order-summary/OrderSummary';
-import {RecipeSelectionRedux} from 'components/RecipeSelection.redux';
 import {MenuRoute} from 'navigation/home/types';
-import {RowMedium} from '@pengepantry/core/lib/components/layout/Spacer';
 import {useHomeNavigation} from 'navigation/home/HomeStack';
+import {RecipeSelectionRedux} from 'components/RecipeSelection.redux';
+import {OrderSummary} from '@pengepantry/core/lib/components/order-summary/OrderSummary';
+import {RowSpacer} from '@pengepantry/core/lib/components/layout/Spacer';
 import {useRecipeSelections} from '@pengepantry/core/lib/store/store-selectors';
 
 export const OrderSummaryRedux = () => {
@@ -13,9 +13,9 @@ export const OrderSummaryRedux = () => {
   return (
     <OrderSummary onNext={() => navigate(MenuRoute.MenuReview)}>
       <RecipeSelectionRedux recipeSelectionId={idOne} />
-      <RowMedium />
+      <RowSpacer />
       <RecipeSelectionRedux recipeSelectionId={idTwo} />
-      <RowMedium />
+      <RowSpacer />
       <RecipeSelectionRedux recipeSelectionId={idThree} />
     </OrderSummary>
   );

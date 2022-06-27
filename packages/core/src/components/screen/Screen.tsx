@@ -1,15 +1,9 @@
 import React from 'react';
-import styled from '@emotion/native';
-import {AppTheme} from 'theme/types';
 import {ViewProps} from 'react-native';
+import {AppView} from 'components/layout/AppView';
 
 export const Screen: React.FC<ViewProps> = ({children}) => {
-  return <ScreenView>{children}</ScreenView>;
+  return (
+    <AppView className="px-3 py-2 min-h-full bg-primary">{children}</AppView>
+  );
 };
-export const ScreenView = styled.View<AppTheme>`
-  display: flex;
-  flex-direction: column;
-  padding: 7px 14px;
-  height: 100%;
-  background-color: ${props => props.theme.background.primary.color};
-`;
