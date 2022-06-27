@@ -1,9 +1,8 @@
 import React from 'react';
-import styled from '@emotion/native';
 import {CenteredRow} from 'components/layout/Row';
 import {AppView} from 'components/layout/AppView';
 import {AppText} from 'components/app-text/AppText';
-import {RowSmall} from 'components/layout/Spacer';
+import {RowSpacer} from 'components/layout/Spacer';
 
 interface Props {
   highlight: string | number;
@@ -18,10 +17,10 @@ export const RecipeHighlight: React.FC<Props> = ({
 }) => {
   return (
     <CenteredRow>
-      <Highlight>
-        <AppText>{highlight}</AppText>
-      </Highlight>
-      <RowSmall />
+      <AppView className="bg-neutral-100 h-8 w-8 justify-center items-center rounded-1">
+        <AppText>{String(highlight)}</AppText>
+      </AppView>
+      <RowSpacer />
       <AppView>
         <AppText>{title}</AppText>
         <AppText>{subTitle}</AppText>
@@ -29,12 +28,3 @@ export const RecipeHighlight: React.FC<Props> = ({
     </CenteredRow>
   );
 };
-
-const Highlight = styled(AppView)`
-  background-color: ${props => props.theme.colors.neutral.light};
-  height: 50px;
-  width: 50px;
-  justify-content: center;
-  border-radius: 10px;
-  align-items: center;
-`;

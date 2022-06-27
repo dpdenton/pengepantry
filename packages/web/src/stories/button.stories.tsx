@@ -9,4 +9,4 @@ export default {
   component: Button,
 };
 
-export const Primary = () => <Button label="ADD" />;
+export const Primary = () => <Button>ADD</Button>;

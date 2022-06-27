@@ -1,16 +1,11 @@
-/**
- * If you are not familiar with React Navigation, refer to the "Fundamentals" guide:
- * https://reactnavigation.org/docs/getting-started
- *
- */
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import React from 'react';
-import {RootStackParamList} from './types';
-import {appTheme} from '@pengepantry/core/lib/theme';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomBar} from 'components/bottom-bar/BottomBar';
 import {HomeStack} from 'navigation/home/HomeStack';
+import {RootStackParamList} from './types';
+import {themeConfig} from '@pengepantry/core/lib/theme/config';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,7 +23,7 @@ export const getDefaultScreenOptions = (params: {title?: string}) => {
     title,
     headerShadowVisible: false, // applied here
     headerStyle: {
-      backgroundColor: appTheme.background.primary.color,
+      backgroundColor: themeConfig.theme.backgroundColor.primary,
     },
   };
 };

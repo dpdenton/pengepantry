@@ -1,14 +1,16 @@
 import React from 'react';
-import {AppText} from '@pengepantry/core/lib/components/app-text/AppText';
-import {Screen} from '@pengepantry/core/lib/components/screen/Screen';
-import {ColMedium} from '@pengepantry/core/lib/components/layout/Spacer';
 import {ScrollView} from 'react-native';
-import {RowMedium} from '@pengepantry/core/lib/components/layout/Spacer';
-import {RecipePopular} from '@pengepantry/core/lib/components/recipe-popular/RecipePopular';
-import {RecipeButton} from '@pengepantry/core/lib/components/recipe-button/RecipeButton';
 import {NavigationProp} from '@react-navigation/native';
 import {MenuRoute, HomeStackParamList} from 'navigation/home/types';
+import {AppText} from '@pengepantry/core/lib/components/app-text/AppText';
+import {Screen} from '@pengepantry/core/lib/components/screen/Screen';
+import {RecipePopular} from '@pengepantry/core/lib/components/recipe-popular/RecipePopular';
+import {RecipeButton} from '@pengepantry/core/lib/components/recipe-button/RecipeButton';
 import {Heading} from '@pengepantry/core/lib/components/heading/Heading';
+import {
+  ColSpacer,
+  RowSpacer,
+} from '@pengepantry/core/lib/components/layout/Spacer';
 
 const uris = [
   'https://upserve.com/media/sites/2/bigstock-Staff-showing-a-sample-of-chee-189121246-1100x600.jpg',
@@ -23,9 +25,9 @@ export const Home: React.FC<{navigation: NavigationProp<HomeStackParamList>}> =
           title="Welcome, Wisteria 👋"
           subTitle="Locally source recipe boxes from your favourite shops"
         />
-        <ColMedium />
+        <ColSpacer />
         <AppText variant="h2">Popular</AppText>
-        <ColMedium />
+        <ColSpacer />
         <ScrollView horizontal style={{flexGrow: 0}}>
           {uris.map((uri, index) => (
             <React.Fragment key={uri}>
@@ -33,13 +35,13 @@ export const Home: React.FC<{navigation: NavigationProp<HomeStackParamList>}> =
                 uri={uri}
                 name="Baked Spicy Salmon and Asparagus"
               />
-              {index !== uris.length - 1 && <RowMedium />}
+              {index !== uris.length - 1 && <RowSpacer />}
             </React.Fragment>
           ))}
         </ScrollView>
-        <ColMedium />
-        <AppText variant="h3">Welcome, Wisteria 👋</AppText>
-        <ColMedium />
+        <ColSpacer />
+        <AppText variant="h3">Ready to get going?</AppText>
+        <ColSpacer />
         <RecipeButton
           onPress={() => props.navigation.navigate(MenuRoute.MenuSelection)}
         />

@@ -2,12 +2,12 @@ import React, {useRef} from 'react';
 import {Animated} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {MenuRoute} from 'navigation/home/types';
+import {useHomeNavigation} from 'navigation/home/HomeStack';
 import {
   RecipeListItem,
   RecipeListItemProps,
 } from '@pengepantry/core/lib/components/recipe-list-item/RecipeListItem';
 import {Item} from '@pengepantry/core/lib/components/recipe-list-item/RecipeListItem';
-import {useHomeNavigation} from 'navigation/home/HomeStack';
 import {useRecipeSelections} from '@pengepantry/core/lib/store/store-selectors';
 import {orderSlice} from '@pengepantry/core/lib/store/slices/order/order-slice';
 

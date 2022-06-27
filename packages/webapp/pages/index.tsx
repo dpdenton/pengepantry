@@ -1,45 +1,46 @@
 import type {NextPage} from 'next';
 import Image from 'next/image';
-import {importNoSSR} from './api/util';
-import {AppSection} from '../components/app-section/AppSection';
 import {AppView} from '@pengepantry/core/lib/components/layout/AppView';
+import {AppText} from '@pengepantry/core/lib/components/app-text/AppText';
+import {Button} from '@pengepantry/core/lib/components/button/Button';
+import {ColSpacer} from '@pengepantry/core/lib/components/layout/Spacer';
 
-const Button = importNoSSR(() =>
-  import('@pengepantry/core/lib/components/button/Button').then(
-    mod => mod.Button,
-  ),
-);
-
-const AppText = importNoSSR(() =>
-  import('@pengepantry/core/lib/components/app-text/AppText').then(
-    mod => mod.AppText,
-  ),
-);
+import {NavBar} from 'components/nav-bar/NavBar';
+import {AppSection} from 'components/app-section/AppSection';
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <AppView>
       <AppSection>
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-10">
-          <div>
-            <AppView />
-            <div>
-              <AppText variant="hero">
-                All The Best Curated Delicious Food and Drink
-              </AppText>
-            </div>
-            <div>
-              <AppText variant="p1">
-                Are you looking for amazing recipe library? Don’t worry! We got
-                it for you!
-              </AppText>
-            </div>
-            <Button label="GET STARTED" />
-          </div>
-          <Image src="/images/hero-recipe.png" width={200} height={200} />
-        </div>
+        <NavBar />
       </AppSection>
-    </div>
+      <AppSection>
+        <AppView className="grid md:grid-cols-2 grid-cols-1 gap-10">
+          <AppView>
+            <ColSpacer size="l" />
+            <AppText variant="hero">
+              All The Best Curated Delicious Food and Drink
+            </AppText>
+            <ColSpacer size="l" />
+            <AppText variant="p1">
+              Are you looking for amazing recipe library? Don’t worry! We got it
+              for you!
+            </AppText>
+            <ColSpacer size="l" />
+            <Button intent="positive">GET STARTED</Button>
+          </AppView>
+          <div style={{width: '100%', height: '100%', position: 'relative'}}>
+            <Image
+              src="/images/hero-recipe.png"
+              layout="responsive"
+              objectFit="contain"
+              height="100%"
+              width="100%"
+            />
+          </div>
+        </AppView>
+      </AppSection>
+    </AppView>
   );
 };
 

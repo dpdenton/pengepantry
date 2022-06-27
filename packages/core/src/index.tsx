@@ -7,8 +7,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-
-import styled from '@emotion/native';
+import {AppView} from 'components/layout/AppView';
 
 const App = () => {
   return (
@@ -19,9 +18,9 @@ const App = () => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}
         >
-          <StyledView>
+          <AppView>
             <Text style={styles.sectionTitle}>Dont matter</Text>
-          </StyledView>
+          </AppView>
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionDescription}>
@@ -66,9 +65,5 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 });
-
-const StyledView = styled.View`
-  background-color: aqua;
-`;
 
 export default App;

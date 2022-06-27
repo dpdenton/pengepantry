@@ -1,138 +1,21 @@
 import React from 'react';
-import styled from '@emotion/native';
-import {AccessibilityRole, TextProps} from 'react-native';
-import {
-  FontFamily,
-  FontSizes,
-  fontSizes,
-  FontStyle,
-  FontWeight,
-  getFontName,
-} from 'theme/fonts';
-import {appTheme} from 'theme';
+import {Text} from 'react-native';
+import {mapFontSizeToClassName} from 'components/app-text/AppText.utils';
+import {AppTextProps} from 'components/app-text/AppText.types';
+import {PropsWithClassName} from 'utils/types';
+import {tw} from 'theme/tailwind';
 
-interface Props extends TextProps {
-  /**
-   * Use this in most cases to set the properties of the font (weight, style, size etc). Defaults to 'p1'
-   *
-   * If you need more fine-grained control over the styling the set the 'override properties' below
-   */
-  variant?: TextVariant;
-
-  color?: string;
-  inverse?: boolean;
-
-  /**
-   * Override properties: if set will override the variant properties
-   */
-  family?: FontFamily;
-  weight?: FontWeight;
-  size?: FontSizes;
-  fontStyle?: FontStyle;
-}
-
-export type TextVariant = 'p3' | 'p2' | 'p1' | 'h3' | 'h2' | 'h1' | 'hero';
-
-const variantMap: {
-  [key in TextVariant]: {
-    color: string;
-    size: FontSizes;
-    fontFamily: FontFamily;
-    weight: FontWeight;
-  };
-} = {
-  p3: {
-    size: fontSizes.m,
-    fontFamily: 'Poppins',
-    weight: 400,
-    color: appTheme.text.primary.color,
-  },
-  p2: {
-    size: fontSizes.m,
-    fontFamily: 'Poppins',
-    weight: 400,
-    color: appTheme.text.primary.color,
-  },
-  p1: {
-    size: fontSizes.m,
-    fontFamily: 'Poppins',
-    weight: 400,
-    color: appTheme.text.primary.color,
-  },
-  h3: {
-    size: fontSizes.l,
-    fontFamily: 'Poppins',
-    weight: 400,
-    color: appTheme.text.primary.color,
-  },
-  h2: {
-    size: fontSizes.xl,
-    fontFamily: 'Poppins',
-    weight: 400,
-    color: appTheme.text.primary.color,
-  },
-  h1: {
-    size: fontSizes.xxl,
-    fontFamily: 'Poppins',
-    weight: 400,
-    color: appTheme.text.primary.color,
-  },
-  hero: {
-    size: fontSizes.hero,
-    fontFamily: 'Poppins',
-    weight: 700,
-    color: appTheme.text.primary.color,
-  },
-};
-
-const headingVariants = ['h1', 'h2', 'h3', 'hero'];
-
-export const AppText: React.FC<Props> = ({
-  variant = 'p1',
-  fontStyle = 'normal',
-  size: sizeOverride,
-  weight: weightOverride,
-  family: fontFamilyOverride,
-  color,
-  inverse,
+export const AppText: React.FC<AppTextProps & PropsWithClassName> = ({
+  variant,
+  size,
+  className,
   children,
   ...textProps
 }) => {
-  const {size, fontFamily, weight} = variantMap[variant];
-
-  const accessibilityRole = headingVariants.includes(variant)
-    ? ('heading' as AccessibilityRole)
-    : 'text';
+  const fontSizeClassName = mapFontSizeToClassName(size);
   return (
-    <TextStyle
-      size={sizeOverride ?? size}
-      weight={weightOverride ?? weight}
-      family={fontFamilyOverride ?? fontFamily}
-      fontStyle={fontStyle}
-      accessibilityRole={accessibilityRole}
-      color={
-        color ??
-        (inverse ? appTheme.text.primary.inverse : appTheme.text.primary.color)
-      }
-      {...textProps}
-    >
+    <Text style={tw.style(className, fontSizeClassName)} {...textProps}>
       {children}
-    </TextStyle>
+    </Text>
   );
 };
-
-interface TextStyleProps {
-  color: string;
-  size: FontSizes;
-  family: FontFamily;
-  weight: FontWeight;
-  fontStyle: FontStyle;
-}
-
-const TextStyle = styled.Text<TextStyleProps>`
-  color: ${({color}) => color};
-  font-size: ${({size}) => `${size}px`};
-  font-family: ${({family, weight, fontStyle}) =>
-    getFontName({family, weight, style: fontStyle})};
-  font-weight: ${({weight}) => String(weight)};
-`;

@@ -1,11 +1,9 @@
-import React from 'react';
-import {AppView} from 'components/layout/AppView';
-import {CenteredRow, Row} from 'components/layout/Row';
-import styled from '@emotion/native';
+import React, {PropsWithChildren} from 'react';
 import {Dot} from 'components/dot/Dot';
-import {useAppTheme} from 'theme/hooks';
+import {AppView} from 'components/layout/AppView';
 import {AppText} from 'components/app-text/AppText';
-import {ColMedium, RowMedium} from 'components/layout/Spacer';
+import {CenteredRow, Row} from 'components/layout/Row';
+import {ColSpacer, RowSpacer} from 'components/layout/Spacer';
 
 export interface CookingStepProps {
   label: string;
@@ -20,27 +18,24 @@ export const CookingStep: React.FC<CookingStepProps> = ({
   isFirst,
   isLast,
 }) => {
-  const {tertiary} = useAppTheme();
   return (
     <AppView>
       <CenteredRow>
         <TimelineContainer>
           {!isFirst && <Timeline />}
-          <TimelineDot size={12} color={tertiary.color} />
+          <Dot size={12} color={'red'} />
           {!isLast && <Timeline />}
         </TimelineContainer>
-        <RowMedium />
-        <AppText variant="h3" style={{marginTop: -5}}>
-          {label}
-        </AppText>
+        <RowSpacer />
+        <AppText variant="h3">{label}</AppText>
       </CenteredRow>
       <Row>
         <TimelineContainer>{!isLast && <Timeline />}</TimelineContainer>
-        <RowMedium />
+        <RowSpacer />
         {descriptions.map(description => (
           <>
             <AppText>{description}</AppText>
-            <ColMedium />
+            <ColSpacer />
           </>
         ))}
       </Row>
@@ -49,24 +44,17 @@ export const CookingStep: React.FC<CookingStepProps> = ({
           <TimelineContainer>
             <Timeline />
           </TimelineContainer>
-          <ColMedium />
+          <ColSpacer />
         </Row>
       )}
     </AppView>
   );
 };
 
-const Timeline = styled(AppView)`
-  width: 2px;
-  flex-grow: 1;
-  border-width: 1px;
-  border-color: ${({theme}) => theme.tertiary.color};
-  background-color: ${({theme}) => theme.tertiary.color};
-`;
+const Timeline = () => {
+  return <AppView className="w-px-2 bg-primary" />;
+};
 
-const TimelineDot = styled(Dot)``;
-
-const TimelineContainer = styled(AppView)`
-  flex-basis: 12px;
-  align-items: center;
-`;
+const TimelineContainer: React.FC<PropsWithChildren<{}>> = ({children}) => {
+  return <AppView className="items-center basis-1">{children}</AppView>;
+};

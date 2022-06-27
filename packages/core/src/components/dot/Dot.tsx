@@ -1,4 +1,5 @@
-import styled from '@emotion/native';
+import React from 'react';
+import classNames from 'classnames';
 import {AppView} from 'components/layout/AppView';
 
 interface Props {
@@ -6,9 +7,13 @@ interface Props {
   color: string;
 }
 
-export const Dot = styled(AppView)<Props>`
-  height: ${props => props.size.toString()}px;
-  width: ${props => props.size.toString()}px;
-  border-radius: ${props => (props.size / 2).toString()}px;
-  background-color: ${props => props.color};
-`;
+export const Dot: React.FC<Props> = ({size}) => {
+  return (
+    <AppView
+      className={classNames(
+        `h-px=${size}`,
+        `w-px=${size} rounded-full bg-primary`,
+      )}
+    />
+  );
+};

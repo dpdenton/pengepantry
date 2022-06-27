@@ -5,3 +5,7 @@ export type NamedEntity = {
   id: string;
   name: string;
 };
+
+export type PropsWithClassName = {
+  className?: string;
+};

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Animated, TouchableOpacity} from 'react-native';
-import styled from '@emotion/native';
 import {Button} from 'components/button/Button';
 import {AppView} from 'components/layout/AppView';
 import {CenteredRow} from 'components/layout/Row';
@@ -25,41 +24,22 @@ export const RecipeListItem: React.FC<RecipeListItemProps> = ({
 }) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <ListItemView>
-        <ListItemImage source={{uri: item.url}} style={imageStyle} />
-        <ListItemDescriptionView>
-          <CenteredRow style={{justifyContent: 'space-between'}}>
+      <AppView className="shadow bg-white rounded-2">
+        <Animated.Image
+          source={{uri: item.url, height: 180}}
+          style={[imageStyle, {width: '100%'}]}
+        />
+        <AppView className="p-2">
+          <CenteredRow className="justify-between">
             <Icon name="burgerMenu" />
             <AppView>
               <AppText variant="p2">Crazy house party</AppText>
               <AppText variant="p2">12 July 2021 - 09:00 pm</AppText>
             </AppView>
-            <Button label={'ADD'} onPress={() => onAdd(item)} />
+            <Button onPress={() => onAdd(item)}>ADD</Button>
           </CenteredRow>
-        </ListItemDescriptionView>
-      </ListItemView>
+        </AppView>
+      </AppView>
     </TouchableOpacity>
   );
 };
-
-const ListItemDescriptionView = styled(AppView)`
-  padding: 14px;
-`;
-
-const ListItemView = styled(AppView)`
-  background-color: white;
-  border-radius: 10px;
-  shadow-color: #000;
-  shadow-offset: 0px 2px;
-  shadow-opacity: 0.06;
-  shadow-radius: 48px;
-  // box-shadow: 0px 2px 48px 0 rgba(0,0,0,0.06);
-`;
-
-const ListItemImage = styled(Animated.Image)`
-  height: 180px;
-  width: 100%;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  z-index: -1;
-`;

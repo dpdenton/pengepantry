@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, ViewProps} from 'react-native';
-import tw from 'twrnc';
 import {AppViewProps} from './AppView.types';
+import {tw} from 'theme/tailwind';
 
 type Props = Omit<ViewProps, 'style'> & AppViewProps;
 

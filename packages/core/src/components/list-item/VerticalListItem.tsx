@@ -2,8 +2,7 @@ import * as React from 'react';
 import {IconName} from 'icons/Icon';
 import {Image} from 'react-native';
 import {Row} from 'components/layout/Row';
-import styled from '@emotion/native';
-import {RowMedium} from 'components/layout/Spacer';
+import {RowSpacer} from 'components/layout/Spacer';
 
 interface Props {
   imageUri?: string;
@@ -13,18 +12,11 @@ interface Props {
 export const VerticalListItem: React.FC<Props> = ({children, imageUri}) => {
   return (
     <Row>
-      {imageUri && <AppImage source={{uri: imageUri}} />}
-      <RowMedium />
-      <VerticalListItemContent>{children}</VerticalListItemContent>
+      {imageUri && (
+        <Image source={{uri: imageUri}} style={{height: 50, width: 50}} />
+      )}
+      <RowSpacer />
+      <Row>{children}</Row>
     </Row>
   );
 };
-
-const VerticalListItemContent = styled(Row)`
-  flex-grow: 1;
-`;
-
-const AppImage = styled(Image)`
-  width: 50px;
-  height: 50px;
-`;
