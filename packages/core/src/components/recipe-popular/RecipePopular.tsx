@@ -22,7 +22,7 @@ export const RecipePopular: React.FC<Props> = ({uri, name}) => {
       <AppText>{name}</AppText>
       <ColSpacer />
       <CenteredRow>
-        <Icon name="clock" inverse />
+        <Icon name="clock" />
         <RowSpacer />
         <AppText>30 mins</AppText>
       </CenteredRow>

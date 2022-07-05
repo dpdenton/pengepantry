@@ -21,7 +21,7 @@ export const RecipeSelectionRedux: React.FC<Props> = ({recipeSelectionId}) => {
     }).start();
   }, [recipeSelectionId, scale]);
 
-  const recipe = recipeSelectionId ? byId.get(recipeSelectionId) : undefined;
+  const recipe = recipeSelectionId ? byId[recipeSelectionId] : undefined;
   prevRecipe.current = recipe ?? prevRecipe.current;
   return (
     <RecipeSelection

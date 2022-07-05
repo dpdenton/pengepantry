@@ -11,5 +11,9 @@ type Props = AppTextProps & AppTextWebProps;
 
 export const AppText: React.FC<Props> = ({size = 'm', children}) => {
   const fontSizeClassName = mapFontSizeToClassName(size);
-  return <p className={classNames(fontSizeClassName)}>{children}</p>;
+  return (
+    <p suppressHydrationWarning className={classNames(fontSizeClassName)}>
+      {children}
+    </p>
+  );
 };

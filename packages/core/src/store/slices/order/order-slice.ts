@@ -3,7 +3,7 @@ import {createSlice} from '@reduxjs/toolkit';
 import {toggleValue} from 'store/utils';
 
 export type OrderSlice = {
-  recipeIds: (string | undefined)[];
+  recipeIds: (string | null)[];
   pantryItemIds: string[];
 };
 
@@ -21,16 +21,21 @@ type OrderReducers = {
 export const orderSlice = createSlice<OrderSlice, OrderReducers>({
   name: 'orderSlice',
   initialState: {
-    recipeIds: [undefined, undefined, undefined],
+    recipeIds: [null, null, null],
     pantryItemIds: [],
   },
   reducers: {
     toggleRecipeSelection: ({recipeIds}, {payload: recipeId}) => {
       const recipeIndex = recipeIds.indexOf(recipeId);
       if (recipeIndex > -1) {
-        recipeIds[recipeIndex] = undefined;
+        recipeIds[recipeIndex] = null;
       } else {
-        const index = recipeIds.indexOf(undefined);
+        const index = recipeIds.indexOf(null);
+        if (index < 0) {
+          throw Error(
+            `About to index recipeIds at -1: ${recipeIds.join(', ')}`,
+          );
+        }
         recipeIds[index] = recipeId;
       }
     },
