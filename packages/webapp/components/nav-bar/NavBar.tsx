@@ -20,9 +20,7 @@ export const NavBar = () => {
           </AppView>
         </AppView>
       </CenteredRow>
-      <div className="ml-auto">
-        <NavBarLinks />
-      </div>
+      <NavBarLinks />
     </nav>
   );
 };
