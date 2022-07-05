@@ -15,12 +15,10 @@ export const useRecipeStore = () => {
 };
 
 export const useRecipesList = (): Recipe[] => {
-  return useAppStore<Recipe[]>(state =>
-    Array.from(state.recipeData.byId.values()),
-  );
+  return useAppStore<Recipe[]>(state => Object.values(state.recipeData.byId));
 };
 
 export const recipeSelector =
   (recipeId: string | undefined) => (state: GlobalReduxStore) => {
-    return recipeId && state.recipeData.byId.get(recipeId);
+    return recipeId && state.recipeData.byId[recipeId];
   };

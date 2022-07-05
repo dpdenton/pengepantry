@@ -1,7 +1,12 @@
-import { getClient } from 'services/graphql/client'
-import { GetRecipeDocument, Query, QueryRecipeArgs, Recipe } from 'services/graphql/models'
+import {getClient} from 'services/graphql/client';
+import {
+  GetRecipeDocument,
+  Query,
+  QueryRecipeArgs,
+  Recipe,
+} from 'services/graphql/models';
 
-const apolloClient = getClient()
+const apolloClient = getClient();
 
 export const getRecipeById = (): Promise<Recipe> => {
   return apolloClient
@@ -11,5 +16,5 @@ export const getRecipeById = (): Promise<Recipe> => {
         id: 1,
       },
     })
-    .then((response) => response.data)
-}
+    .then(response => response.data);
+};

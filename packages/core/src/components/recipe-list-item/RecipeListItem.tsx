@@ -1,34 +1,46 @@
-import React from 'react';
-import {Animated, TouchableOpacity} from 'react-native';
+import React, {useEffect, useRef} from 'react';
+import {Icon} from 'icons/Icon';
+import {useDefaultState} from 'utils/hooks';
 import {Button} from 'components/button/Button';
 import {AppView} from 'components/layout/AppView';
 import {CenteredRow} from 'components/layout/Row';
 import {AppText} from 'components/app-text/AppText';
-import {Icon} from 'icons/Icon';
+import {AppImage} from 'components/app-image/AppImage';
+import {AppAnimation} from 'components/app-image/AppImage.types';
 
-export interface Item {
+export type Item = {
   id: string;
   url: string;
-}
-export interface RecipeListItemProps {
+};
+
+export type RecipeListItemProps = {
   item: Item;
   onAdd: (item: Item) => void;
-  onPress: () => void;
-  imageStyle?: Animated.Animated;
-}
-export const RecipeListItem: React.FC<RecipeListItemProps> = ({
+  onPress?: () => void;
+  isSelected?: boolean;
+};
+
+const RecipeListItemBase: React.FC<RecipeListItemProps> = ({
   item,
   onAdd,
-  onPress,
-  imageStyle,
+  isSelected = false,
 }) => {
+  const imageRef = useRef<AppAnimation>(null);
+  const selected = useDefaultState(isSelected, false);
+
+  const handleClick = () => {
+    imageRef.current?.scale(selected ? 1 : 0);
+    onAdd(item);
+  };
+
+  useEffect(() => {
+    imageRef.current?.scale(selected ? 0 : 1);
+  }, [selected]);
+
   return (
-    <TouchableOpacity onPress={onPress}>
+    <AppView>
       <AppView className="shadow bg-white rounded-2">
-        <Animated.Image
-          source={{uri: item.url, height: 180}}
-          style={[imageStyle, {width: '100%'}]}
-        />
+        <AppImage ref={imageRef} url={item.url} />
         <AppView className="p-2">
           <CenteredRow className="justify-between">
             <Icon name="burgerMenu" />
@@ -36,10 +48,12 @@ export const RecipeListItem: React.FC<RecipeListItemProps> = ({
               <AppText variant="p2">Crazy house party</AppText>
               <AppText variant="p2">12 July 2021 - 09:00 pm</AppText>
             </AppView>
-            <Button onPress={() => onAdd(item)}>ADD</Button>
+            <Button onPress={handleClick}>{selected ? 'REMOVE' : 'ADD'}</Button>
           </CenteredRow>
         </AppView>
       </AppView>
-    </TouchableOpacity>
+    </AppView>
   );
 };
+
+export const RecipeListItem = React.memo(RecipeListItemBase);

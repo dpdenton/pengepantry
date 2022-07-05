@@ -8,7 +8,7 @@ const getElementClassName = (key: string, config: {[key: string]: string}) =>
 
 const containerClassNameConfig: {[K in WithCommon<Intent>]: string} = {
   __common__:
-    'text-center rounded px-10 py-2 hover:text-black ring-2 ring-white hover:ring-purple-600',
+    'text-center rounded px-10 py-2 hover:text-black hover:ring-purple-600',
   neutral: 'bg-white border border-action-positive',
   negative: 'bg-action-positive',
   positive: 'bg-action-positive',

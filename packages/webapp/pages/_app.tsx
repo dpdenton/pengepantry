@@ -1,12 +1,12 @@
 import '../styles/globals.css';
-import type {AppProps} from 'next/app';
-import {Provider} from 'react-redux';
-import {reduxStore} from '@pengepantry/core/lib/store/store';
 import {PropsWithChildren} from 'react';
+import {Provider} from 'react-redux';
+import type {AppProps} from 'next/app';
+import {appStore} from 'store/app-store';
 
 const App: React.FC<PropsWithChildren<AppProps>> = ({Component, pageProps}) => {
   return (
-    <Provider store={reduxStore}>
+    <Provider store={appStore}>
       <Component {...pageProps} />
     </Provider>
   );

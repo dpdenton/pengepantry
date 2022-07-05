@@ -6,11 +6,9 @@ import Link from 'next/link';
 export const NavBarLinks: React.FC = () => {
   return (
     <Row>
-      <Link href="/">Link 1</Link>
+      <Link href="/">Home</Link>
       <RowSpacer />
-      <Link href="/">Link 2</Link>
-      <RowSpacer />
-      <Link href="/">Link 3</Link>
+      <Link href="/recipes">Recipes</Link>
     </Row>
   );
 };

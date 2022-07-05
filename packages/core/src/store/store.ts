@@ -1,4 +1,4 @@
-import {applyMiddleware, combineReducers, createStore} from 'redux';
+import {AnyAction, applyMiddleware, combineReducers, createStore} from 'redux';
 
 import {call, put, takeEvery} from 'redux-saga/effects';
 import {getRecipeById} from 'services/graphql/queries';
@@ -7,6 +7,7 @@ import {Recipe} from 'entities/Recipe';
 import * as GraphQLModels from 'services/graphql/models';
 import {RecipeDataSlice, recipeDataSlice} from 'store/slices/recipe-data-slice';
 import {orderSlice, OrderSlice} from 'store/slices/order/order-slice';
+import {initialStoreValues} from 'store/store.data';
 
 // const customizedMiddleware = getDefaultMiddleware({
 //   serializableCheck: false,
@@ -17,14 +18,30 @@ export interface GlobalReduxStore {
   order: OrderSlice;
 }
 
-const reducer = combineReducers<GlobalReduxStore>({
+export const rootReducer = combineReducers<GlobalReduxStore>({
   recipeData: recipeDataSlice.reducer,
   order: orderSlice.reducer,
 });
+
+export const STATE_KEY = 'pengepantry-app-state';
+
+export const initialState = {
+  order: {recipeIds: [null, null, null], pantryItemIds: []},
+  recipeData: {
+    loading: false,
+    byId: initialStoreValues,
+    recipe: null,
+  },
+};
+
 // Create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 // Mount it on the Store
-export const reduxStore = createStore(reducer, applyMiddleware(sagaMiddleware));
+export const reduxStore = createStore<GlobalReduxStore, AnyAction, any, any>(
+  rootReducer,
+  initialState,
+  applyMiddleware(sagaMiddleware),
+);
 
 // SAGAS
 
@@ -46,3 +63,5 @@ function* mySaga() {
 
 // Then run the saga
 sagaMiddleware.run(mySaga);
+
+export {sagaMiddleware};
