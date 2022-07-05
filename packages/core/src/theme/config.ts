@@ -10,9 +10,6 @@ const config = {
         'positive-inverse': 'white',
       },
     },
-    backgroundColor: {
-      primary: '#FAFAFA',
-    },
   },
 };
 
