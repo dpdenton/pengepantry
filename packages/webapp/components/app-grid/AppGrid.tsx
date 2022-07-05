@@ -1,19 +1,15 @@
-import classNames from 'classnames';
-import {AppView} from '@pengepantry/core/lib/components/layout/AppView';
 import {PropsWithChildren} from 'react';
+import {AppView} from '@pengepantry/core/lib/components/layout/AppView';
 
 interface Props extends PropsWithChildren {
   cols?: number;
   gap?: number;
 }
 
-export const AppGrid: React.FC<Props> = ({cols, gap = 4, children}) => {
+export const AppGrid: React.FC<Props> = ({cols = 1, gap = 4, children}) => {
   return (
     <AppView
-      className={classNames('grid', {
-        [`gap-${gap}`]: gap,
-        [`grid-cols-${cols}`]: cols,
-      })}
+      className={`grid grid-cols-${cols.toString()} gap-${gap.toString()}`}
     >
       {children}
     </AppView>

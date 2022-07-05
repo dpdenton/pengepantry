@@ -6,7 +6,6 @@ import {Button} from '@pengepantry/core/lib/components/button/Button';
 import {ColSpacer} from '@pengepantry/core/lib/components/layout/Spacer';
 import {NavBar} from 'components/nav-bar/NavBar';
 import {AppSection} from 'components/app-section/AppSection';
-import {SelectedRecipeIds} from 'components/SelectedRecipeIds';
 
 const Home: NextPage = () => {
   return (
@@ -28,7 +27,6 @@ const Home: NextPage = () => {
             </AppText>
             <ColSpacer size="l" />
             <Button intent="positive">GET STARTED</Button>
-            <SelectedRecipeIds />
           </AppView>
           <div style={{width: '100%', height: '100%', position: 'relative'}}>
             <Image
