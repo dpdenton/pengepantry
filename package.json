@@ -9,7 +9,7 @@
     "packages": [
       "packages/*"
     ],
-    "nohoist": []
+    "nohoist": ["**/@nestjs", "**/@nestjs/**"]
   },
   "dependencies": {
     "react": "18.2.0",
