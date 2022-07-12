@@ -1,8 +1,8 @@
-import { Field, GraphQLISODateTime, ID, ObjectType } from '@nestjs/graphql';
+import { Field, Int, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class Recipe {
-  @Field(() => ID)
+  @Field(() => Int)
   id: number;
 
   @Field({ nullable: false })
@@ -14,6 +14,6 @@ export class Recipe {
   @Field({ nullable: true })
   heroImageUrl?: string;
 
-  @Field(() => GraphQLISODateTime)
+  @Field()
   lastUpdated: string;
 }

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {PropsWithChildren} from 'react';
 import {IconName} from 'icons/Icon';
 import {Image} from 'react-native';
 import {Row} from 'components/layout/Row';
@@ -9,7 +9,10 @@ interface Props {
   iconName?: IconName;
 }
 
-export const VerticalListItem: React.FC<Props> = ({children, imageUri}) => {
+export const VerticalListItem: React.FC<PropsWithChildren<Props>> = ({
+  children,
+  imageUri,
+}) => {
   return (
     <Row>
       {imageUri && (

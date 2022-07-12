@@ -1,0 +1,5 @@
+query GetRecipes {
+  recipes {
+    ...RecipeFragment
+  }
+}

@@ -1,9 +1,5 @@
-query GetRecipe($recipeId: Int!) {
-  recipe(id: $recipeId) {
-    id
-    name
-    price
-    heroImageUrl
-    lastUpdated
+query GetRecipe($id: Int!) {
+  recipe(id: $id) {
+    ...RecipeFragment
   }
 }

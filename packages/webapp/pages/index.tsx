@@ -6,8 +6,16 @@ import {Button} from '@pengepantry/core/lib/components/button/Button';
 import {ColSpacer} from '@pengepantry/core/lib/components/layout/Spacer';
 import {NavBar} from 'components/nav-bar/NavBar';
 import {AppSection} from 'components/app-section/AppSection';
+import {useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+import {recipeDataSlice} from '@pengepantry/core/lib/store/slices/recipe-data-slice';
 
 const Home: NextPage = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(recipeDataSlice.actions.fetchRecipe('123'));
+  });
   return (
     <AppView>
       <AppSection>

@@ -1,20 +1,29 @@
-import {getClient} from 'services/graphql/client';
+import {QueryOptions} from '@apollo/client/core/watchQueryOptions';
+import {DocumentNode} from 'graphql';
 import {
   GetRecipeDocument,
+  GetRecipesDocument,
   Query,
   QueryRecipeArgs,
-  Recipe,
-} from 'services/graphql/models';
+} from './models';
+import {getClient} from './client';
 
-const apolloClient = getClient();
-
-export const getRecipeById = (): Promise<Recipe> => {
-  return apolloClient
-    .query<Query['recipe'], QueryRecipeArgs>({
-      query: GetRecipeDocument,
-      variables: {
-        id: 1,
-      },
-    })
-    .then(response => response.data);
+const makeQuery = <TData, TVariables>(query: DocumentNode) => {
+  return (
+    options: Omit<QueryOptions<TVariables, TData>, 'query'> = {},
+  ): Promise<TData> => {
+    return getClient()
+      .query<TData, TVariables>({...options, query})
+      .then(response => {
+        return response.data;
+      });
+  };
 };
+
+export const getRecipeById = makeQuery<Query['recipe'], QueryRecipeArgs>(
+  GetRecipeDocument,
+);
+
+export const getRecipes = makeQuery<Query['recipes'], undefined>(
+  GetRecipesDocument,
+);
