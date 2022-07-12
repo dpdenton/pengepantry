@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropsWithChildren} from 'react';
 import {CenteredRow} from 'components/layout/Row';
 import {AppView} from 'components/layout/AppView';
 import {Button} from 'components/button/Button';
@@ -8,7 +8,10 @@ interface Props {
   onNext: () => void;
 }
 
-export const OrderSummary: React.FC<Props> = ({onNext, children}) => {
+export const OrderSummary: React.FC<PropsWithChildren<Props>> = ({
+  onNext,
+  children,
+}) => {
   return (
     <AppView className="bg-neutral-100 p-2">
       <CenteredRow className="justify-between">{children}</CenteredRow>

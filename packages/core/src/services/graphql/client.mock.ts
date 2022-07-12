@@ -15,11 +15,11 @@ apolloClient.setRequestHandler(GetRecipeDocument, request => {
       resolve({
         data: {
           recipe: {
-            id: '1',
-            name: 'Bucking',
-            price: 123,
-            lastUpdated: '123',
-            heroImageUrl: '123',
+            id: request.id,
+            name: 'Bucking Bronco',
+            price: 99.99,
+            lastUpdated: new Date().toISOString(),
+            heroImageUrl: 'https://image.com',
           },
         },
       });

@@ -1,5 +1,4 @@
 import {AnyAction, applyMiddleware, combineReducers, createStore} from 'redux';
-
 import {call, put, takeEvery} from 'redux-saga/effects';
 import {getRecipeById} from 'services/graphql/queries';
 import createSagaMiddleware from 'redux-saga';
@@ -46,9 +45,12 @@ export const reduxStore = createStore<GlobalReduxStore, AnyAction, any, any>(
 // SAGAS
 
 // Worker saga will be fired on USER_FETCH_REQUESTED actions
-function* fetchRecipe() {
+function* fetchRecipe(args: {type: string; payload: number}) {
+  console.log({args});
   try {
-    const recipe: GraphQLModels.Recipe = yield call(getRecipeById);
+    const recipe: GraphQLModels.Recipe = yield call(() =>
+      getRecipeById({variables: {id: args.payload}}),
+    );
     yield put(recipeDataSlice.actions.setProduct(Recipe.fromGraphQL(recipe)));
   } catch (e) {
     yield put({type: 'USER_FETCH_FAILED', message: e});
@@ -58,6 +60,7 @@ function* fetchRecipe() {
 // Starts fetchUser on each dispatched USER_FETCH_REQUESTED action
 // Allows concurrent fetches of user
 function* mySaga() {
+  // @ts-ignore
   yield takeEvery(recipeDataSlice.actions.fetchRecipe, fetchRecipe);
 }
 

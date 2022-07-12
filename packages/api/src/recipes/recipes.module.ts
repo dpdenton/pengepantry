@@ -1,9 +1,15 @@
 import { Module } from '@nestjs/common';
-import { RecipesService } from './recipes.service';
+import { RecipesService, MockRecipesService } from './recipes.service';
 import { RecipesResolver } from './recipes.resolver';
 
 @Module({
   imports: [RecipesModule],
-  providers: [RecipesService, RecipesResolver],
+  providers: [
+    {
+      provide: RecipesService,
+      useClass: MockRecipesService,
+    },
+    RecipesResolver,
+  ],
 })
 export class RecipesModule {}

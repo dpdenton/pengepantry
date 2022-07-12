@@ -11,7 +11,7 @@ export interface RecipeDataSlice {
 
 type RecipeDataSliceReducers = {
   addRecipe: (state: RecipeDataSlice, payload: PayloadAction<Recipe>) => any;
-  fetchRecipe: (state: RecipeDataSlice, payload: PayloadAction<number>) => any;
+  fetchRecipe: (state: RecipeDataSlice, payload: PayloadAction<string>) => any;
   setProduct: (state: RecipeDataSlice, payload: PayloadAction<Recipe>) => any;
 };
 
