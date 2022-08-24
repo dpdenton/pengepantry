@@ -23,7 +23,7 @@ export const getDefaultScreenOptions = (params: {title?: string}) => {
     title,
     headerShadowVisible: false, // applied here
     headerStyle: {
-      backgroundColor: themeConfig.theme.backgroundColor.primary,
+      backgroundColor: themeConfig.theme.colors.primary,
     },
   };
 };
