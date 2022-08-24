@@ -7,7 +7,8 @@
     "core": "tsc && tsc-alias",
     "core:watch": "tsc -w & tsc-alias -w",
     "schema:download": "ts-node scripts/download-schema.ts ",
-    "schema:codegen": "graphql-codegen --config codegen.yml"
+    "schema:codegen": "graphql-codegen --config codegen.yml",
+    "adb-reverse": "adb reverse tcp:8081 tcp:8081 && adb reverse tcp:9090 tcp:9090"
   },
   "dependencies": {
     "@apollo/client": "3.3.9",
