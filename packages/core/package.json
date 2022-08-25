@@ -7,8 +7,7 @@
     "core": "tsc && tsc-alias",
     "core:watch": "tsc -w & tsc-alias -w",
     "schema:download": "ts-node scripts/download-schema.ts ",
-    "schema:codegen": "graphql-codegen --config codegen.yml",
-    "adb-reverse": "adb reverse tcp:8081 tcp:8081 && adb reverse tcp:9090 tcp:9090"
+    "schema:codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@apollo/client": "3.3.9",
@@ -17,7 +16,6 @@
     "classnames": "^2.3.1",
     "graphql": "^16.3.0",
     "lodash": "^4.17.21",
-    "react-native-svg": "^12.3.0",
     "react-native-web": "^0.17.7",
     "react-redux": "^7.2.8",
     "redux": "^4.1.2",
