@@ -1,4 +1,4 @@
-import Svg, {Path} from 'react-native-svg';
+import {AppText} from 'components/app-text/AppText';
 import React from 'react';
 import {iconData} from './Icon.data';
 
@@ -9,12 +9,5 @@ interface Props {
 }
 
 export const Icon: React.FC<Props> = ({name}) => {
-  const {paths} = iconData[name];
-  return (
-    <Svg height="24px" width="24px" viewBox="0 0 24 24" fill="black">
-      {paths.map((path, index) => (
-        <Path key={index} d={path} />
-      ))}
-    </Svg>
-  );
+  return <AppText>I</AppText>;
 };
